@@ -267,54 +267,49 @@
 
 
         </tbody></table>
-<!-- 				
+				
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>
             <td>
-              <heading>Other</heading>
+              <heading>Publications</heading>
             </td>
           </tr>
         </tbody></table>
         <table width="100%" align="center" border="0" cellpadding="20"><tbody>
 					
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/cvf.jpg"></td>
-            <td width="75%" valign="center">
-              <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
-              <br>
-              <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Longuet-Higgins Award Committee Member, CVPR 2021</a>
-              <br>
-              <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
-              <br>
-              <a href="http://cvpr2018.thecvf.com/organizers/area_chairs">Area Chair, CVPR 2018</a>
-            </td>
-          </tr>
-          <tr>
+          <tr onmouseout="iotpub_stop()" onmouseover="iotpub_start()">
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/cs188.jpg" alt="cs188">
+              <div class="one">
+                <div class="two" id='iotpub_image'>
+                  <img src='images/iotpub-1.jpeg' width="160" height="100"></div>
+                <img src='images/iotpub-2.png' width="160" height="100">
+              </div>
+              <script type="text/javascript">
+                function iotpub_start() {
+                  document.getElementById('iotpub_image').style.opacity = "1";
+                }
+      
+                function iotpub_stop() {
+                  document.getElementById('iotpub_image').style.opacity = "0";
+                }
+                iotpub_stop()
+              </script>
             </td>
-            <td width="75%" valign="center">
-              <a href="http://inst.eecs.berkeley.edu/~cs188/sp11/announcements.html">Graduate Student Instructor, CS188 Spring 2011</a>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <a href="https://github.com/sanjitk7/KYYarnTrader">
+                <papertitle>A Survey on Internet of Things Security : </papertitle>
+              </a>
+              <b>Attacks, Solutions, Strengths and Limitations</b>
               <br>
-              <a href="http://inst.eecs.berkeley.edu/~cs188/fa10/announcements.html">Graduate Student Instructor, CS188 Fall 2010</a>
+              <em> International Conference on Artificial Intelligence and Machine Vision (AIMV), 2021 </em> 
               <br>
-              <a href="http://aima.cs.berkeley.edu/">Figures, "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
+              <br>
+              Presented a comparative analysis of benchmarks for latest security frameworks from then recent IoT literature while advised by Dr. Anil Kumar Kakelli.
+              <!-- <a href="https://www.youtube.com/watch?v=izMW93BM-xs&t=2s">youtube</a>. -->
+              <br><br>
             </td>
           </tr>
 					
-
-          <tr>
-            <td align="center" style="padding:20px;width:25%;vertical-align:middle">
-							<heading>Basically <br> Blog Posts</heading>
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://arxiv.org/abs/2112.11687">Squareplus: A Softplus-Like Algebraic Rectifier</a>
-              <br>
-              <a href="https://arxiv.org/abs/2010.09714">A Convenient Generalization of Schlick's Bias and Gain Functions</a>
-              <br>
-              <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
-            </td>
-          </tr>
 					
 					
         </tbody></table>
@@ -323,14 +318,18 @@
             <td style="padding:0px">
               <br>
               <p style="text-align:right;font-size:small;">
-                Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>. <strong>Do not</strong> scrape the HTML from this page itself, as it includes analytics tags that you do not want on your own website &mdash; use the github code instead. Also, consider using <a href="https://leonidk.com/">Leonid Keselman</a>'s <a href="https://github.com/leonidk/new_website">Jekyll fork</a> of this page.
+                design and source code from <a href="https://jonbarron.info">Jon Barron's website</a>
               </p>
             </td>
           </tr>
         </tbody></table>
       </td>
     </tr>
-  </table> -->
+  </table>
+
+
+  
+
 </body>
 
 </html>
