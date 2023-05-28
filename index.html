@@ -22,6 +22,7 @@
   gtag('config', 'G-76HT9824K8');
 </script>
 
+
 <body>
   <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr style="padding:0px">
@@ -278,6 +279,40 @@
     </tr>	
 
 
+    <tr onmouseout="mapreduce_stop()" onmouseover="mapreduce_start()">
+      <td style="padding:20px;width:25%;vertical-align:middle">
+        <div class="one">
+          <div class="two" id='mapreduce_image'>
+            <img src='images/mapred-1.png' width="160" height="100"></div>
+          <img src='images/mapred-2.png' width="160" height="100">
+        </div>
+        <script type="text/javascript">
+          function mapreduce_start() {
+            document.getElementById('mapreduce_image').style.opacity = "1";
+          }
+
+          function mapreduce_stop() {
+            document.getElementById('mapreduce_image').style.opacity = "0";
+          }
+          mapreduce_stop()
+        </script>
+      </td>
+      <td style="padding:20px;width:75%;vertical-align:middle">
+        <a href="https://github.com/sanjitk7/MapReducePython">
+          <papertitle>DockerMapReduce: </papertitle>
+        </a>
+        <b>A distributed MapReduce simulation with docker nodes </b>
+        <!-- <br>
+        <em>Best Ethereum Powered Project @ DevSpace '21 by CSI, VIT &<br>
+          Best Dyte Powered Project @ DevSpace '21 by CSI, VIT</em>  -->
+        <br>
+        <br>
+        A MapReduce algorithm for finding frequency of unique words a large volume of text tested on a single machine with multiple docker containers acting as separate nodes for map and reduce jobs. The throughput of the task is checked by scaling the data and nodes up and down.
+        <!-- <a href="https://www.youtube.com/watch?v=izMW93BM-xs&t=2s">youtube</a>. -->
+        <br><br>
+      </td>
+    </tr>	
+
         </tbody></table>
 				
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
@@ -321,6 +356,7 @@
               <br><br>
             </td>
           </tr>
+          
 					
 					
 					
