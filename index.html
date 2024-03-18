@@ -46,13 +46,13 @@
                     systems.
                   </p>
                   <p>
-                    I enjoy designing and developing scalable software systems and web applications. Outside
+                    I enjoy designing and developing scalable software systems and full stack web applications. Outside
                     of work, I love biking on mountain trails, cooking Indian cuisine and exploring the city.
                   </p>
                   <p style="text-align:center">
                     <a href="mailto:sanjitk2018@gmail.com">Email</a> &nbsp/&nbsp
-                    <a href="data/SanjitKumar_ResumeFeb2024.pdf">Resume</a> &nbsp/&nbsp
-                    <a href="https://www.linkedin.com/in/sanjit-kumar-b56b911a0/">LinkedIn</a> &nbsp/&nbsp
+                    <a href="data/SanjitKumarResume_Mar2024.pdf">Resume</a> &nbsp/&nbsp
+                    <a href="https://www.linkedin.com/in/sanjitk7/">LinkedIn</a> &nbsp/&nbsp
                     <a href="https://github.com/sanjitk7/">Github</a>&nbsp/&nbsp
                     <a href="https://scholar.google.co.in/citations?hl=en&user=1xRsk98AAAAJjktWnL8AAAAJ">Google
                       Scholar</a>
@@ -82,8 +82,26 @@
             style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
 
-
               <tr bgcolor="#ffffd0">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <img src='images/uofilogoblue2.jpeg' width="160">
+                  </div>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <b>Graduate Teaching Assistant @ </b>
+                  <a href="https://cs.illinois.edu">
+                    <papertitle>Department of Computer Science, UIUC</papertitle>
+                  </a>
+                  <br>
+                  <em>Jan 2024 - Present | Champaign, IL</em>
+                  <br><br>
+                  Worked with Dr. Radhika Mittal on the course <a href="https://courses.grainger.illinois.edu/cs425/sp2024/">CS425: Distributed Systems</a> to provide industry relevant lessons for 200+ graduate/undergraduate students. Held bi-weekly office hours and assessed homework and projects. Mentored students to build distributed & networked applications projects (reliable multicasting, consensus via raft, consistent transactions).
+                  <br><br>
+                </td>
+              </tr>
+
+              <tr>
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
                     <img src='images/aviz-logo-dark.jpeg' width="160">
@@ -97,8 +115,11 @@
                   <br>
                   <em>Aug 2023 - Nov 2023 | San Jose, CA</em>
                   <br><br>
-                  Developed and integrated a web UI, REST API, and Redis DB Cache for a DPDK Network Packet Collector. Performance tuned high throughput low latency network packet collector pipeline by batching packet
-payload to improve single packet processing time by 50%. Automated configuration, build and execution of the packet collector with Python.
+                  Developed and integrated a web UI, REST API, and Redis DB Cache for a C-based Network Packet
+                  Collector. Optimized and performance-tuned the packet collector pipeline via payload batching.
+                  Achieved a 3x improvement in throughput and 50% reduction in latency. Automated the configuration,
+                  build and execution of the packet collector
+                  with Bash scripts and Python.
                   <br><br>
                 </td>
               </tr>
@@ -117,12 +138,12 @@ payload to improve single packet processing time by 50%. Automated configuration
                   <br>
                   <em>May 2023 - Aug 2023 | San Jose, CA</em>
                   <br><br>
-                  Designed and developed a highly performant and scalable network analyzer system in C++ that taps
-                  packets of high velocity traffic from network fabric of data centers to extract and stream metadata
-                  information. Leveraged scalable event processing systems like Kafka and Elasticsearch for further
-                  analytics. Benchmarked performance on physical network devices with Python network load generator to
-                  test for
-                  scalability.
+                  Designed and developed a C++ based scalable network packet analyzer system. System tapped packets from
+                  high throughput network traffic from data centers to extract and stream metadata information.
+                  Leveraged scalable event processing systems like Kafka and Elasticsearch for data pipelining and
+                  downstream analytics. Benchmarked performance on physical network devices with software-based (Scapy)
+                  and hardware-based (Ixia) load generator for scalability testing. Used a Kafka consumer to integrate a
+                  REST API with the system for selective packet capture and data sink integrations.
                   <br><br>
                 </td>
               </tr>
@@ -164,9 +185,9 @@ payload to improve single packet processing time by 50%. Automated configuration
                   <br>
                   <em> Nov 2020 - Dec 2020 | Bangalore, India</em>
                   <br><br>
-                  Engineered Custom Tensorflow object detection model plugins with open-source Shinobi CCTV framework.
-                  Developed ReactJS web pages and node.js REST API scripts for two different MERN stack applications for
-                  local businesses in Bangalore.
+                  Developed UI with ReactJS and wrote REST API endpoints with node.js and Express.js for two different
+                  MERN stack applications. Integrated custom Tensorflow object detection models with Shinobi
+                  (open-source CCTV framework).
                   <br><br>
                 </td>
               </tr>
@@ -254,12 +275,7 @@ payload to improve single packet processing time by 50%. Automated configuration
                   <!-- <em>Fall 2022 @ UIUC</em>  -->
                   <br>
                   <!-- <br> -->
-                  Designed an ML inference job scheduler system build on top of 10 Linux VMs from scratch using Java and
-                  Python.
-                  Includes distributed a distributed logging service, a distributed group membership protocol and
-                  failure detector and a simple distributed files system that sit on top of each other. A real-time work
-                  scheduling algorithm re-allocates compute resources to optimize query rate for ResNet and ImageNet ML
-                  inference tasks.
+                  Designed a distributed job scheduler system for ML inference tasks built on top of 10 Linux VMs from scratch using Java and Python. Uses a real-time work scheduling algorithm to optimize query rate for ResNet and ImageNet classification tasks. Includes a distributed data logging service, distributed group membership protocol and failure detector, a distributed files system.
                   <br><br>
                 </td>
               </tr>
@@ -407,7 +423,13 @@ payload to improve single packet processing time by 50%. Automated configuration
                   <b>Rasterizer, Ray Tracer, WebGL Terrain Modeling, Flight Simulation and Particle Effects</b>
                   <br>
                   <br>
-                  A collection of projects around interactive computer graphics - Implementations of a <em> Rasterizer and Ray Tracer</em> from scratch that take descriptions of a scene and output graphic images. Also includes a collection of work with WebGL: creating a 3D Model of an arbitrary landscape terrain using random fault generation, illumination via diffuse/specular lighting models and erosion simulation. A flight simulation of said generated terrain. Finally a simulation of particles with physical forces like momentum, gravity and drag. For <a href="https://sanjitk7.github.io/InteractiveComputerGraphics/">more details and demonstrations</a>.
+                  A collection of projects around interactive computer graphics - Implementations of a <em> Rasterizer
+                    and Ray Tracer</em> from scratch that take descriptions of a scene and output graphic images. Also
+                  includes a collection of work with WebGL: creating a 3D Model of an arbitrary landscape terrain using
+                  random fault generation, illumination via diffuse/specular lighting models and erosion simulation. A
+                  flight simulation of said generated terrain. Finally a simulation of particles with physical forces
+                  like momentum, gravity and drag. For <a
+                    href="https://sanjitk7.github.io/InteractiveComputerGraphics/">more details and demonstrations</a> of this work.
                   <br><br>
                 </td>
               </tr>
