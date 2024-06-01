@@ -131,5 +131,9 @@ span.highlight {
 }
 
 #profile-pic {
-  clip-path: circle();
+  /* clip-path: circle(); */
+  border-radius: 50%;
+  width:100%;
+  max-width:100%;
+  height:auto;
 }
