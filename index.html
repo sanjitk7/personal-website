@@ -496,6 +496,45 @@
               </tr>
 
 
+              <tr onmouseout="mld_stop()" onmouseover="mld_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='mld_image'>
+                      <img src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160">
+                      <!-- <img src='images/arrow.png' width="160"> -->
+                    </div>
+                    <!-- <img src='https://arrow.apache.org/img/arrow-logo_hex_white-txt_black-bg.png' width="160"> -->
+                      <!-- <img src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160"> -->
+                    <img src='images/flatbuffers.png' width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function mld_start() {
+                      document.getElementById('mld_image').style.opacity = "1";
+                    }
+
+                    function mld_stop() {
+                      document.getElementById('mld_image').style.opacity = "0";
+                    }
+                    // mld_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://github.com/ambur-biryani/wild-sprint-frontend">
+                    <papertitle>Data Systems and Machine Learning: </papertitle>
+                  </a>
+                  <b>Online Aggregation, HyperLogLog, Apache Arrow-Parquet ASCII Encoder, Flatbuffers and Shared Memory</b>
+                  <br>
+                  <br>
+                  <u>OLA:</u> Implemented OLA to progressively obtain approximate query results for various Pandas DataFrame operations, such as filtered mean, grouped mean, and grouped sum. <br><br>
+                  <u>Apache Arrow-Parquet Encoder:</u> Implemented HyperLogLog to estimate the dataset cardinality. Modified the Apache Arrow source code to implement a new ASCII Encoder and Decoder for Parquet, supporting the Integer and Float data types. <br><br>
+                  <u>Flatbuffers & Shared Memory:</u> Worked with Google's Flatbuffers and Python's shared memory libraries to pass serialized DataFrames between notebook sessions, and performed various operations directly on the serialized DataFrames. 
+                  This improves data sharing and manipulation efficiency in Python since leveraging Flatbuffers provides faster serialization and shared memory for inter-process communication.
+
+                  <br><br>
+                </td>
+              </tr>
+
+
             </tbody>
           </table>
 
@@ -540,8 +579,8 @@
                   <br>
                   <br>
                   Presented a comparative analysis of benchmarks for latest security frameworks from then recent IoT
-                  literature while advised by Dr. Anil Kumar Kakelli.
-                  <!-- <a href="https://www.youtube.com/watch?v=izMW93BM-xs&t=2s">youtube</a>. -->
+                  literature while advised by Dr. Anil Kumar Kakelli. Categorically classified and critiqued existing IoT security frameworks based on their approaches to address the threat of malignant
+                  nodes in heterogenous device networks and general strengths/limitations.
                   <br><br>
                 </td>
               </tr>
