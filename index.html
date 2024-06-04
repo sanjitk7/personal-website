@@ -29,7 +29,7 @@
   <table
     style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
-      <tr style="padding:0px">
+      <tr id="distributed-systems-ta" style="padding:0px">
         <td style="padding:0px">
 
 
@@ -53,7 +53,7 @@
                   </p>
                   <p style="text-align:center">
                     <a href="mailto:sanjitk2018@gmail.com">Email</a> &nbsp/&nbsp
-                    <a href="data/SanjitKumarResume_May2024_N_v2.pdf">Resume</a> &nbsp/&nbsp
+                    <a href="data/SanjitKumarResume_June2024_N.pdf">Resume</a> &nbsp/&nbsp
                     <a href="https://www.linkedin.com/in/sanjitk7/">LinkedIn</a> &nbsp/&nbsp
                     <a href="https://github.com/sanjitk7/">Github</a>&nbsp/&nbsp
                     <a href="https://scholar.google.co.in/citations?hl=en&user=1xRsk98AAAAJjktWnL8AAAAJ">Google
@@ -533,7 +533,42 @@
                   <br><br>
                 </td>
               </tr>
+              
+              <tr id="operating-system-design" onmouseout="osd_stop()" onmouseover="osd_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='osd_image'>
+                      <img src='images/osd_mp3.png' width="160">
+                      <!-- <img src='images/arrow.png' width="160"> -->
+                    </div>
+                    <!-- <img src='https://arrow.apache.org/img/arrow-logo_hex_white-txt_black-bg.png' width="160"> -->
+                      <!-- <img src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160"> -->
+                    <img src='images/osd_mp1.png' width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function osd_start() {
+                      document.getElementById('osd_image').style.opacity = "1";
+                    }
 
+                    function osd_stop() {
+                      document.getElementById('osd_image').style.opacity = "0";
+                    }
+                    // osd_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://github.com/sanjitk7/cs423-os-design/tree/master">
+                    <papertitle>Linux Kernel Development: </papertitle>
+                  </a>
+                  <b>Kernel Page Fault Profiler, Rate Monotonic Scheduler, Computing Kernel CPU Time</b>
+                  <br>
+                  <br>
+                  <u><a href="https://github.com/sanjitk7/cs423-os-design/tree/master/MP3">Page Fault Profiler:</a></u> A kernel-space virtual page fault profiler, monitoring page faults and CPU run times via a virtual memory buffer and delayed work queue at 20 samples per second, and managed process registration through the proc interface.  <br><br>
+                  <u href="https://github.com/sanjitk7/cs423-os-design/">Rate Monotonic Scheduler:</u> A real-time CPU scheduler as a Linux kernel module based on Rate-Monotonic Scheduling (RMS) for single-core processors, utilizing the Proc filesystem for user space communication. <br><br>
+                  <u><a href="https://github.com/sanjitk7/cs423-os-design/tree/master/MP1">Computing CPU Time:</a></u> A Linux kernel module for process management using a doubly linked list and proc filesystem, featuring periodic CPU time updates via a workqueue and timer callbacks.
+                  <br><br>
+                </td>
+              </tr>
 
             </tbody>
           </table>
