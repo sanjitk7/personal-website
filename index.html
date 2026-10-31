@@ -237,6 +237,45 @@
               <!--  -->
               <!--  -->
 
+              <tr id="operating-system-design" onmouseout="osd_stop()" onmouseover="osd_start()">
+                <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                    <div class="two" id='osd_image'>
+                      <img src='images/osd_mp3.png' width="160">
+                      <!-- <img src='images/arrow.png' width="160"> -->
+                    </div>
+                    <!-- <img src='https://arrow.apache.org/img/arrow-logo_hex_white-txt_black-bg.png' width="160"> -->
+                      <!-- <img src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160"> -->
+                    <img src='images/osd_mp1.png' width="160">
+                  </div>
+                  <script type="text/javascript">
+                    function osd_start() {
+                      document.getElementById('osd_image').style.opacity = "1";
+                    }
+
+                    function osd_stop() {
+                      document.getElementById('osd_image').style.opacity = "0";
+                    }
+                    // osd_stop()
+                  </script>
+                </td>
+                <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master">
+                    <papertitle>Linux Kernel Development: </papertitle>
+                  </a>
+                  <b>Kernel Page Fault Profiler, Rate Monotonic Scheduler, Computing Kernel CPU Time</b>
+                  <br>
+                  <br>
+                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/MP3#readme">Page Fault Profiler:</a></u> A kernel-space virtual page fault profiler, monitoring page faults and CPU run times via a virtual memory buffer and delayed work queue at 20 samples per second, and managed process registration through the proc interface.  <br><br>
+                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/">Rate Monotonic Scheduler:</a></u> A real-time CPU scheduler as a Linux kernel module based on Rate-Monotonic Scheduling (RMS) for single-core processors, utilizing the Proc filesystem for user space communication. <br><br>
+                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/MP1#readme">Computing CPU Time:</a></u> A Linux kernel module for process management using a doubly linked list and proc filesystem, featuring periodic CPU time updates via a workqueue and timer callbacks.
+                  <br><br>
+                </td>
+              </tr>
+
+              <!--  -->
+              <!--  -->
+
               <tr onmouseout="wildsprint_stop()" onmouseover="wildsprint_start()">
                 <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
@@ -471,41 +510,6 @@
                 </td>
               </tr>
               
-              <tr id="operating-system-design" onmouseout="osd_stop()" onmouseover="osd_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='osd_image'>
-                      <img src='images/osd_mp3.png' width="160">
-                      <!-- <img src='images/arrow.png' width="160"> -->
-                    </div>
-                    <!-- <img src='https://arrow.apache.org/img/arrow-logo_hex_white-txt_black-bg.png' width="160"> -->
-                      <!-- <img src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160"> -->
-                    <img src='images/osd_mp1.png' width="160">
-                  </div>
-                  <script type="text/javascript">
-                    function osd_start() {
-                      document.getElementById('osd_image').style.opacity = "1";
-                    }
-
-                    function osd_stop() {
-                      document.getElementById('osd_image').style.opacity = "0";
-                    }
-                    // osd_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master">
-                    <papertitle>Linux Kernel Development: </papertitle>
-                  </a>
-                  <b>Kernel Page Fault Profiler, Rate Monotonic Scheduler, Computing Kernel CPU Time</b>
-                  <br>
-                  <br>
-                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/MP3#readme">Page Fault Profiler:</a></u> A kernel-space virtual page fault profiler, monitoring page faults and CPU run times via a virtual memory buffer and delayed work queue at 20 samples per second, and managed process registration through the proc interface.  <br><br>
-                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/">Rate Monotonic Scheduler:</a></u> A real-time CPU scheduler as a Linux kernel module based on Rate-Monotonic Scheduling (RMS) for single-core processors, utilizing the Proc filesystem for user space communication. <br><br>
-                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/MP1#readme">Computing CPU Time:</a></u> A Linux kernel module for process management using a doubly linked list and proc filesystem, featuring periodic CPU time updates via a workqueue and timer callbacks.
-                  <br><br>
-                </td>
-              </tr>
 
             </tbody>
           </table>
