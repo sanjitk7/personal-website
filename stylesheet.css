@@ -89,7 +89,9 @@ strong {
   font-size: 14px;
 }
 
-heading {
+h2.heading {
+  margin: 0;
+  font-weight: normal;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 22px;
 }
@@ -100,7 +102,9 @@ papertitle {
   font-weight: 700
 }
 
-name {
+h1.name {
+  margin: 0;
+  font-weight: normal;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 32px;
 }
