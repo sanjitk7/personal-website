@@ -145,7 +145,7 @@ def build_b():
       <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}</p>
       {f'<span class="pill">{e(x["metric"])}</span>' if x['metric'] else ''}</div></div>""" for x in EXPERIENCE)
     body = f"""<nav><div class="wrap"><a class="brand" href="#">Sanjit Kumar</a>
-  <ul><li><a href="#work">Work</a></li><li><a href="#experience">Experience</a></li><li><a href="#photography">Photography</a></li></ul>
+  <ul><li><a href="#experience">Experience</a></li><li><a href="#work">Work</a></li><li><a href="#photography">Photography</a></li></ul>
   <a class="cta" href="mailto:sanjitk2018@gmail.com">Get in touch</a></div></nav>
 <main class="wrap">
   <div class="hero"><div>
@@ -156,9 +156,9 @@ def build_b():
       <a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/sanjitk7/" target="_blank" rel="noopener">LinkedIn</a></div></div>
     <div class="portrait"><img src="../images/sanjit-profile-pic-circle.jpeg" alt="Sanjit Kumar, software engineer at Amazon" width="400" height="400"></div></div>
+  <section id="experience"><div class="sh"><h2>Experience</h2><p>M.S. CS, UIUC</p></div><div class="exp">{jobs}</div></section>
   <section id="work"><div class="sh"><h2>Selected work</h2><p>Systems, kernels, graphics.</p></div>
     <div class="grid">{cards}</div><div class="list">{lis}</div></section>
-  <section id="experience"><div class="sh"><h2>Experience</h2><p>M.S. CS, UIUC</p></div><div class="exp">{jobs}</div></section>
   <section id="photography"><a class="photo" href="{VSCO}" target="_blank" rel="noopener"><div><h2>Photography</h2>
     <p>When I'm not shipping code I'm usually out with a camera. A running gallery lives on VSCO.</p></div><span class="btn">Open gallery ↗</span></a></section>
   <footer><h2>Let's build something.<br><span style="color:var(--muted)">sanjitk2018@gmail.com</span></h2>
@@ -240,7 +240,7 @@ def build_c():
 
 INDEX = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>Redesign mockups</title><style>body{font:16px/1.6 system-ui;max-width:560px;margin:64px auto;padding:0 16px}a{display:block;padding:14px 0;border-bottom:1px solid #eee}</style></head>
-<body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio with featured work</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
+<body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio (experience first)</a><a href="d-bento.html">D · Bento: card-grid sibling of B</a><a href="e-index.html">E · Index: Swiss editorial, oversized type</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
 
 if __name__ == "__main__":
     (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX)
