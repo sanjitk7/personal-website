@@ -136,7 +136,7 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
 .card{background:var(--surface);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
 .card:hover{transform:translateY(-4px)}
 .card .img{aspect-ratio:16/10;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
-.card .img img{width:100%;height:100%;object-fit:cover}
+.card .img{position:relative}.card .img img{width:100%;height:100%;object-fit:cover}.card .img .hov{position:absolute;inset:0;opacity:0;transition:opacity .35s ease}.card:hover .img .hov,.card:focus-visible .img .hov{opacity:1}
 .card .c{padding:20px 22px 24px}.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .card h3{font-size:19px;letter-spacing:-.01em;margin:6px 0 8px}.card p{margin:0;color:var(--muted);font-size:15px}
 .list{margin-top:28px;border-top:1px solid var(--line)}
@@ -170,7 +170,7 @@ footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1
 
 def build_b():
     feat = [p for p in PROJECTS if p['featured']]; rest = [p for p in PROJECTS if not p['featured']]
-    cards = "".join(f"""<a class="card" href="{p['url']}"{ext(p['url'])}><div class="img"><img src="../images/{p['img']}" alt="{e(p['name'])}" loading="lazy"></div>
+    cards = "".join(f"""<a class="card" href="{p['url']}"{ext(p['url'])}><div class="img"><img src="../images/{p['img']}" alt="{e(p['name'])}" loading="lazy">{f'<img class="hov" src="../images/{p["img_hover"]}" alt="" loading="lazy">' if p.get('img_hover') else ''}</div>
       <div class="c"><div class="tag">{e(p['tag'])}</div><h3>{e(p['name'])}</h3><p>{e(p['line'])}</p></div></a>""" for p in feat)
     lis = "".join(f"""<a class="li" href="{p['url']}"{ext(p['url'])}><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{ICONS.get(p['name'],'')}</svg></span><b>{e(p['name'])}</b><span>{e(p['line'])}</span><em>{' · '.join(p['stack'])} ↗</em></a>""" for p in rest)
     jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" loading="lazy">
