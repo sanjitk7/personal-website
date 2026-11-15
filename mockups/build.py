@@ -100,7 +100,7 @@ nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px;c
 .eyebrow i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px #22c55e33}
 h1{font-size:clamp(44px,6.4vw,76px);line-height:1;letter-spacing:-.04em;font-weight:600;margin:20px 0 14px}
 .sub{font-size:clamp(22px,2.6vw,30px);line-height:1.25;letter-spacing:-.02em;font-weight:500;margin:0 0 18px;max-width:560px}
-.lede{font-size:18px;color:var(--muted);max-width:520px;margin:0 0 28px}
+.lede{font-size:18px;color:var(--muted);max-width:560px;margin:0 0 16px}.lede+.btns{margin-top:28px}.ul{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.ul:hover{text-decoration-color:var(--ink)}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:500;transition:border-color .2s,background .2s}
 .btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -150,8 +150,9 @@ def build_b():
 <main class="wrap">
   <div class="hero"><div>
     <span class="eyebrow"><i></i>Software engineer at Amazon Music</span>
-    <h1>Sanjit Kumar</h1><p class="sub">Software engineer working on subscription growth at Amazon Music.</p>
-    <p class="lede">Master's degree, Computer Science, University of Illinois Urbana-Champaign. Into full stack and distributed systems. {e(OUTSIDE)}</p>
+    <h1>Sanjit Kumar</h1>
+    <p class="lede">I'm Sanjit Kumar, a software engineer at <a class="ul" href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a> in Seattle, working on subscription growth across voice and mobile. I hold a master's degree in computer science from the <a class="ul" href="https://cs.illinois.edu" target="_blank" rel="noopener">University of Illinois Urbana-Champaign (UIUC)</a>. I am broadly interested in full stack software development, distributed and networked systems.</p>
+    <p class="lede">Outside of work, you can find me on a road bike, camera in hand, on the hunt for a new coffee shop I can read a book at.</p>
     <div class="btns"><a class="btn primary" href="../data/SanjitKumarResume_FullStack.pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg>Resume</a>
       <a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></div></div>
