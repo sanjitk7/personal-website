@@ -79,7 +79,7 @@ def build_d():
       <div class="btns"><a class="btn primary" href="../data/SanjitKumarResume_FullStack.pdf">Resume</a><a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener">GitHub</a><a class="btn" href="https://www.linkedin.com/in/sanjitk7/" target="_blank" rel="noopener">LinkedIn</a></div></div>
     <div class="tile photo"><img src="../images/sanjit-profile-pic-circle.jpeg" alt="Sanjit Kumar, software engineer at Amazon" width="400" height="400"></div>
     <div class="tile metric"><div class="label">Impact at Amazon</div><div class="big">150k+</div><p>annualized Amazon Music tier signups</p></div>
-    <a class="tile edu" href="https://cs.illinois.edu" target="_blank" rel="noopener"><img src="../images/uofilogoblue2.jpeg" alt="UIUC logo"><b>M.S. Computer Science</b><span>University of Illinois Urbana-Champaign</span></a>
+    <a class="tile edu" href="https://cs.illinois.edu" target="_blank" rel="noopener"><img src="../images/uofilogoblue2.jpeg" alt="UIUC logo"><b>Master's degree, Computer Science</b><span>University of Illinois Urbana-Champaign</span></a>
     <div class="tile loc"><div class="label">Based in</div><b>Seattle, WA</b><span>Road bike, books, coffee.</span></div>
     <a class="tile lens" href="{VSCO}" target="_blank" rel="noopener"><div class="label">Photography</div><div><b>Through the lens ↗</b><br><span>Gallery on VSCO</span></div></a>
   </div>
@@ -156,7 +156,7 @@ def build_e():
   <div class="row"><div class="idx"><span class="n">(01)</span><h2>About</h2></div><div class="content">
     <div class="aboutgrid"><p class="statement">Software engineer at <a href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a>, working on subscription growth across voice and mobile.</p>
       <img src="../images/sanjit-profile-pic-circle.jpeg" alt="Sanjit Kumar, software engineer at Amazon" width="200" height="200"></div>
-    <div class="facts"><div><span class="mono">Education</span><p>M.S. Computer Science,<br>University of Illinois Urbana-Champaign</p></div>
+    <div class="facts"><div><span class="mono">Education</span><p>Master's degree, Computer Science,<br>University of Illinois Urbana-Champaign</p></div>
       <div><span class="mono">Interests</span><p>Full stack development,<br>distributed and networked systems</p></div>
       <div><span class="mono">Off the clock</span><p>Road bike, camera in hand,<br>a new coffee shop and a book</p></div></div></div></div>
   <div class="row"><div class="idx"><span class="n">(02)</span><h2>Experience</h2></div><div class="content"><div class="tbl">{exp}</div></div></div>

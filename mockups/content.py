@@ -13,7 +13,7 @@ def seo_head():
 INTRO = ("I'm a software engineer at Amazon Music in Seattle, working on subscription growth across voice and mobile. "
          "I hold a master's in computer science from the University of Illinois Urbana-Champaign, and I'm broadly "
          "interested in full stack development and distributed, networked systems.")
-INTRO_SHORT = "Software engineer at Amazon Music in Seattle. M.S. in Computer Science from UIUC. I build full stack products and distributed systems."
+INTRO_SHORT = "Software engineer at Amazon Music in Seattle. Master's degree in Computer Science from UIUC. I build full stack products and distributed systems."
 OUTSIDE = "Outside of work: road bike, camera in hand, hunting for a new coffee shop to read a book at."
 
 LINKS = [
@@ -81,3 +81,12 @@ PROJECTS = [
 
 PUBLICATION = dict(title="A Survey on Internet of Things Security: Attacks, Solutions, Strengths and Limitations",
     venue="AIMV 2021", url="https://ieeexplore.ieee.org/document/9670971")
+
+# Simple monochrome line icons (24x24, stroke=currentColor) for the compact project list.
+ICONS = {
+ "Data systems & ML": '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
+ "RealWorldBugDiscovery": '<rect x="7" y="7" width="10" height="13" rx="5"/><path d="M12 11v9M7 12H3M21 12h-4M7 17H4M20 17h-3M9 7l-2-3M15 7l2-3"/>',
+ "WildSprint": '<path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c4-4 7-7 11-10"/>',
+ "KYYarn": '<path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/>',
+ "DockerMapReduce": '<path d="M12 2l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 17l9 5 9-5"/>',
+}

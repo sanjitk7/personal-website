@@ -117,7 +117,8 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
 .card .c{padding:20px 22px 24px}.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .card h3{font-size:19px;letter-spacing:-.01em;margin:6px 0 8px}.card p{margin:0;color:var(--muted);font-size:15px}
 .list{margin-top:28px;border-top:1px solid var(--line)}
-.li{display:grid;grid-template-columns:220px 1fr auto;gap:24px;align-items:baseline;padding:18px 4px;border-bottom:1px solid var(--line);transition:background .2s}
+.ti{width:44px;height:44px;border-radius:12px;background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.li:hover .ti{background:var(--ink);color:#fff}
+.li{display:grid;grid-template-columns:44px 200px 1fr auto;gap:24px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);transition:background .2s}
 .li:hover{background:var(--surface)}.li b{font-weight:600}.li span{color:var(--muted);font-size:15px}.li em{font-style:normal;color:var(--muted);font-size:13px}
 .exp{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .job{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px}
@@ -132,7 +133,7 @@ footer{padding:72px 0 56px;border-top:1px solid var(--line)}
 footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1;margin-bottom:24px}
 .fine{color:var(--muted);font-size:13px;margin-top:48px}
 @media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 64px}.portrait{max-width:112px;justify-self:start;order:-1}
- .grid,.exp{grid-template-columns:1fr}.li{grid-template-columns:1fr;gap:2px}nav ul{display:none}}
+ .grid,.exp{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
 @media (max-width:520px){.sh p{display:none}.wrap{padding:0 16px}section{padding:56px 0}.photo{padding:32px 24px;grid-template-columns:1fr}.job{flex-direction:column}}
 """
 
@@ -140,7 +141,7 @@ def build_b():
     feat = [p for p in PROJECTS if p['featured']]; rest = [p for p in PROJECTS if not p['featured']]
     cards = "".join(f"""<a class="card" href="{p['url']}"{ext(p['url'])}><div class="img"><img src="../images/{p['img']}" alt="{e(p['name'])}" loading="lazy"></div>
       <div class="c"><div class="tag">{e(p['tag'])}</div><h3>{e(p['name'])}</h3><p>{e(p['line'])}</p></div></a>""" for p in feat)
-    lis = "".join(f"""<a class="li" href="{p['url']}"{ext(p['url'])}><b>{e(p['name'])}</b><span>{e(p['line'])}</span><em>{' · '.join(p['stack'])} ↗</em></a>""" for p in rest)
+    lis = "".join(f"""<a class="li" href="{p['url']}"{ext(p['url'])}><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{ICONS.get(p['name'],'')}</svg></span><b>{e(p['name'])}</b><span>{e(p['line'])}</span><em>{' · '.join(p['stack'])} ↗</em></a>""" for p in rest)
     jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" loading="lazy">
       <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}</p>
       {f'<span class="pill">{e(x["metric"])}</span>' if x['metric'] else ''}</div></div>""" for x in EXPERIENCE)
@@ -151,12 +152,12 @@ def build_b():
   <div class="hero"><div>
     <span class="eyebrow"><i></i>Software engineer at Amazon Music</span>
     <h1>Sanjit Kumar</h1><p class="sub">Software engineer working on subscription growth at Amazon Music.</p>
-    <p class="lede">M.S. in Computer Science from UIUC. Into full stack and distributed systems. {e(OUTSIDE)}</p>
+    <p class="lede">Master's degree, Computer Science, University of Illinois Urbana-Champaign. Into full stack and distributed systems. {e(OUTSIDE)}</p>
     <div class="btns"><a class="btn primary" href="../data/SanjitKumarResume_FullStack.pdf">Resume</a>
       <a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/sanjitk7/" target="_blank" rel="noopener">LinkedIn</a></div></div>
     <div class="portrait"><img src="../images/sanjit-profile-pic-circle.jpeg" alt="Sanjit Kumar, software engineer at Amazon" width="400" height="400"></div></div>
-  <section id="experience"><div class="sh"><h2>Experience</h2><p>M.S. CS, UIUC</p></div><div class="exp">{jobs}</div></section>
+  <section id="experience"><div class="sh"><h2>Experience</h2><p>Master's degree, Computer Science · UIUC</p></div><div class="exp">{jobs}</div></section>
   <section id="work"><div class="sh"><h2>Selected work</h2><p>Systems, kernels, graphics.</p></div>
     <div class="grid">{cards}</div><div class="list">{lis}</div></section>
   <section id="photography"><a class="photo" href="{VSCO}" target="_blank" rel="noopener"><div><h2>Photography</h2>
