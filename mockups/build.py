@@ -38,6 +38,11 @@ PH_TINTS = ['#dfe6e2', '#e6e1d8', '#d9dfe8', '#e3dfe6', '#dde3d6', '#e8e2dc']
 def tile(i, f, prefix):
     if f: return f'<img src="{prefix}images/photography/{f}" alt="Photo by Sanjit Kumar" loading="lazy">'
     return f'<span class="ph" style="background:{PH_TINTS[i % len(PH_TINTS)]}">{CAM}</span>'
+def photo_section():
+    return f"""  <section id="photography"><div class="sh"><h2>Photography</h2><p><a class="ul" href="photography.html">View gallery →</a></p></div>
+    <a class="strip" href="photography.html">{photo_strip()}</a>
+    <p class="vsco">More on <a class="ul" href="{VSCO}" target="_blank" rel="noopener">VSCO ↗</a></p></section>
+"""
 def photo_strip():
     fs = photos() or [None] * 4
     return ''.join(f'<span class="cell">{tile(i, f, "../")}</span>' for i, f in enumerate(fs[:4]))
@@ -171,7 +176,7 @@ def build_b():
     jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" loading="lazy">
       <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}{(' ' + e(x['metric_sentence'])) if x.get('metric_sentence') else ''}</p></div></div>""" for x in EXPERIENCE)
     body = f"""<nav><div class="wrap"><a class="brand" href="#">Sanjit Kumar</a>
-  <ul><li><a href="#experience">Experience</a></li><li><a href="#work">Work</a></li><li><a href="#photography">Photography</a></li></ul>
+  <ul><li><a href="#experience">Experience</a></li><li><a href="#work">Work</a></li>{'<li><a href="#photography">Photography</a></li>' if photos() else ''}</ul>
   <a class="cta" href="mailto:sanjitk2018@gmail.com">Get in touch</a></div></nav>
 <main class="wrap">
   <div class="hero"><div>
@@ -187,10 +192,7 @@ def build_b():
   <section id="experience"><div class="sh"><h2>Experience</h2></div><div class="exp">{jobs}</div></section>
   <section id="work"><div class="sh"><h2>Selected work</h2><p>Systems, kernels, graphics.</p></div>
     <div class="grid">{cards}</div><div class="list">{lis}</div></section>
-  <section id="photography"><div class="sh"><h2>Photography</h2><p><a class="ul" href="photography.html">View gallery →</a></p></div>
-    <a class="strip" href="photography.html">{photo_strip()}</a>
-    <p class="vsco">More on <a class="ul" href="{VSCO}" target="_blank" rel="noopener">VSCO ↗</a></p></section>
-  <footer><p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer>
+{photo_section() if photos() else ""}  <footer><p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer>
 </main>"""
     return page("Cards", "family=Inter:wght@400;500;600;700", CSS_B, body)
 
@@ -306,5 +308,5 @@ INDEX = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name
 <body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio (experience first)</a><a href="d-bento.html">D · Bento: card-grid sibling of B</a><a href="e-index.html">E · Index: Swiss editorial, oversized type</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
 
 if __name__ == "__main__":
-    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT/'photography.html').write_text(build_gallery())
+    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT/'photography.html').write_text(build_gallery()) if photos() else (OUT/'photography.html').unlink(missing_ok=True)
     print("built")
