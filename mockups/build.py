@@ -129,11 +129,15 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
   background-image:radial-gradient(120% 140% at 100% 0%,#3a2a20 0%,#111 55%)}
 .photo h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em}.photo p{color:#bbb;margin:10px 0 0;max-width:460px}
 .photo .btn{border-color:#444;color:#fff}.photo .btn:hover{border-color:#fff}
-footer{padding:72px 0 56px;border-top:1px solid var(--line)}
+.more{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.mcard{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px;transition:border-color .2s}
+.mcard:hover{border-color:var(--ink)}.mcard:hover .ti{background:var(--ink);color:#fff}.mcard .ti{flex:none}
+.mcard h3{font-size:17px;line-height:1.4;margin:6px 0 10px;font-weight:600}.go{font-size:14px;font-weight:500}
+footer{padding:8px 0 40px;border-top:1px solid var(--line)}
 footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1;margin-bottom:24px}
 .fine{color:var(--muted);font-size:13px;margin-top:48px}
 @media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 64px}.portrait{max-width:112px;justify-self:start;order:-1}
- .grid,.exp{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
+ .grid,.exp,.more{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
 @media (max-width:520px){.sh p{display:none}.wrap{padding:0 16px}section{padding:56px 0}.photo{padding:32px 24px;grid-template-columns:1fr}.job{flex-direction:column}}
 """
 
@@ -154,17 +158,20 @@ def build_b():
     <p class="lede">I'm Sanjit Kumar, a software engineer at <a class="ul" href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a> in Seattle, working on subscription growth across voice and mobile. I hold a master's degree in computer science from the <a class="ul" href="https://cs.illinois.edu" target="_blank" rel="noopener">University of Illinois Urbana-Champaign (UIUC)</a>. I am broadly interested in full stack software development, distributed and networked systems.</p>
     <p class="lede">Outside of work, you can find me on a road bike, camera in hand, on the hunt for a new coffee shop I can read a book at.</p>
     <div class="btns"><a class="btn primary" href="../data/SanjitKumarResume_FullStack.pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg>Resume</a>
+      <a class="btn" href="mailto:sanjitk2018@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
       <a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
       <a class="btn" href="https://www.linkedin.com/in/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></div></div>
     <div class="portrait"><img src="../images/sanjit-profile-pic-circle.jpeg" alt="Sanjit Kumar, software engineer at Amazon" width="400" height="400"></div></div>
   <section id="experience"><div class="sh"><h2>Experience</h2><p>Master's degree, Computer Science · UIUC</p></div><div class="exp">{jobs}</div></section>
   <section id="work"><div class="sh"><h2>Selected work</h2><p>Systems, kernels, graphics.</p></div>
     <div class="grid">{cards}</div><div class="list">{lis}</div></section>
-  <section id="photography"><a class="photo" href="{VSCO}" target="_blank" rel="noopener"><div><h2>Photography</h2>
-    <p>When I'm not shipping code I'm usually out with a camera. A running gallery lives on VSCO.</p></div><span class="btn">Open gallery ↗</span></a></section>
-  <footer><h2>Let's build something.<br><span style="color:var(--muted)">sanjitk2018@gmail.com</span></h2>
-    <div class="btns"><a class="btn primary" href="mailto:sanjitk2018@gmail.com">Email me</a><a class="btn" href="{PUBLICATION['url']}" target="_blank" rel="noopener">IoT security survey (AIMV 2021) ↗</a></div>
-    <p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer>
+  <section id="photography"><div class="sh"><h2>Beyond work</h2></div><div class="more">
+    <a class="mcard" href="{PUBLICATION['url']}" target="_blank" rel="noopener"><span class="ti"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+      <div><div class="tag">Publication · AIMV 2021</div><h3>{e(PUBLICATION['title'])}</h3><span class="go">Read on IEEE Xplore ↗</span></div></a>
+    <a class="mcard" href="{VSCO}" target="_blank" rel="noopener"><span class="ti"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span>
+      <div><div class="tag">Photography</div><h3>My photography, collected on VSCO.</h3><span class="go">Open gallery ↗</span></div></a>
+  </div></section>
+  <footer><p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer>
 </main>"""
     return page("Cards", "family=Inter:wght@400;500;600;700", CSS_B, body)
 
