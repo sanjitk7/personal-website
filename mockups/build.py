@@ -143,8 +143,7 @@ def build_b():
       <div class="c"><div class="tag">{e(p['tag'])}</div><h3>{e(p['name'])}</h3><p>{e(p['line'])}</p></div></a>""" for p in feat)
     lis = "".join(f"""<a class="li" href="{p['url']}"{ext(p['url'])}><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{ICONS.get(p['name'],'')}</svg></span><b>{e(p['name'])}</b><span>{e(p['line'])}</span><em>{' · '.join(p['stack'])} ↗</em></a>""" for p in rest)
     jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" loading="lazy">
-      <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}</p>
-      {f'<span class="pill">{e(x["metric"])}</span>' if x['metric'] else ''}</div></div>""" for x in EXPERIENCE)
+      <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}{(' ' + e(x['metric_sentence'])) if x.get('metric_sentence') else ''}</p></div></div>""" for x in EXPERIENCE)
     body = f"""<nav><div class="wrap"><a class="brand" href="#">Sanjit Kumar</a>
   <ul><li><a href="#experience">Experience</a></li><li><a href="#work">Work</a></li><li><a href="#photography">Photography</a></li></ul>
   <a class="cta" href="mailto:sanjitk2018@gmail.com">Get in touch</a></div></nav>
