@@ -303,10 +303,42 @@ def build_gallery():
 </body></html>
 """
 
+CSS_CAR = r"""
+.carhead{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.arrows{display:flex;gap:8px;align-items:center}.count{font-size:14px;color:var(--muted);margin-right:8px;font-variant-numeric:tabular-nums}
+.arr{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);transition:border-color .2s,opacity .2s}
+.arr:hover{border-color:var(--ink)}.arr:disabled{opacity:.35;cursor:default;border-color:var(--line)}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}.track .card{scroll-snap-align:start}
+@media (max-width:860px){.track{grid-auto-columns:calc((100% - 20px)/2)}}
+@media (max-width:520px){.track{grid-auto-columns:86%;gap:14px}.count{display:none}}
+"""
+JS_CAR = r"""
+const t=document.querySelector('.track'),pv=document.querySelector('.arr.prev'),nx=document.querySelector('.arr.next'),ct=document.querySelector('.count');
+const step=()=>{const c=t.querySelector('.card');return c.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||20)};
+const per=()=>Math.max(1,Math.round(t.clientWidth/step()));
+function upd(){const n=t.children.length,first=Math.round(t.scrollLeft/step());pv.disabled=t.scrollLeft<4;nx.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4;
+ const last=Math.min(n,first+per());ct.textContent=(last>first+1?`${first+1}–${last}`:`${first+1}`)+` of ${n}`}
+pv.onclick=()=>t.scrollBy({left:-step()*per()});nx.onclick=()=>t.scrollBy({left:step()*per()});
+t.addEventListener('scroll',()=>requestAnimationFrame(upd));addEventListener('resize',upd);upd();
+"""
+def build_b_carousel():
+    html = build_b()
+    cards = "".join(f"""<a class="card" href="{p['url']}"{ext(p['url'])}><div class="img"><img src="../images/{p['img']}" alt="{e(p['name'])}" loading="lazy">{f'<img class="hov" src="../images/{p["img_hover"]}" alt="" loading="lazy">' if p.get('img_hover') else ''}</div>
+      <div class="c"><div class="tag">{e(p['tag'])}</div><h3>{e(p['name'])}</h3><p>{e(p['line'])}</p></div></a>""" for p in PROJECTS)
+    chev = lambda d: f'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{d}"/></svg>'
+    i = html.index('<section id="work">'); j = html.index('</section>', i) + len('</section>')
+    sec = f"""<section id="work"><div class="carhead"><h2>Selected work</h2><div class="arrows"><span class="count"></span>
+      <button class="arr prev" aria-label="Previous projects">{chev('M15 18l-6-6 6-6')}</button><button class="arr next" aria-label="Next projects">{chev('M9 18l6-6-6-6')}</button></div></div>
+    <div class="track">{cards}</div></section>"""
+    html = html[:i] + sec + html[j:]
+    html = html.replace('</style>', CSS_CAR + '</style>', 1)
+    return html.replace('</body>', f'<script>{JS_CAR}</script>\n</body>', 1)
+
 INDEX = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>Redesign mockups</title><style>body{font:16px/1.6 system-ui;max-width:560px;margin:64px auto;padding:0 16px}a{display:block;padding:14px 0;border-bottom:1px solid #eee}</style></head>
-<body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio (experience first)</a><a href="d-bento.html">D · Bento: card-grid sibling of B</a><a href="e-index.html">E · Index: Swiss editorial, oversized type</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
+<body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio (experience first)</a><a href="b-carousel.html">B · Carousel: all projects as image cards with arrows</a><a href="d-bento.html">D · Bento: card-grid sibling of B</a><a href="e-index.html">E · Index: Swiss editorial, oversized type</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
 
 if __name__ == "__main__":
-    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT/'photography.html').write_text(build_gallery()) if photos() else (OUT/'photography.html').unlink(missing_ok=True)
+    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'b-carousel.html').write_text(build_b_carousel()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT/'photography.html').write_text(build_gallery()) if photos() else (OUT/'photography.html').unlink(missing_ok=True)
     print("built")
