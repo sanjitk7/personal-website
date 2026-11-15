@@ -24,6 +24,24 @@ def page(title_suffix, fonts, css, body, js=""):
 def ext(url):
     return '' if url.startswith(('mailto:', '../', '#')) else ' target="_blank" rel="noopener"'
 
+
+import os
+PHOTO_DIR = OUT.parent / 'images' / 'photography'
+def photos():
+    """Real photos from images/photography/ if present, else None (placeholders)."""
+    if PHOTO_DIR.is_dir():
+        fs = sorted(f for f in os.listdir(PHOTO_DIR) if f.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')))
+        if fs: return fs
+    return None
+CAM = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg>'
+PH_TINTS = ['#dfe6e2', '#e6e1d8', '#d9dfe8', '#e3dfe6', '#dde3d6', '#e8e2dc']
+def tile(i, f, prefix):
+    if f: return f'<img src="{prefix}images/photography/{f}" alt="Photo by Sanjit Kumar" loading="lazy">'
+    return f'<span class="ph" style="background:{PH_TINTS[i % len(PH_TINTS)]}">{CAM}</span>'
+def photo_strip():
+    fs = photos() or [None] * 4
+    return ''.join(f'<span class="cell">{tile(i, f, "../")}</span>' for i, f in enumerate(fs[:4]))
+
 # ---------------------------------------------------------------- A: Quiet
 CSS_A = r"""
 :root{--bg:#fbfaf7;--ink:#1c1b19;--muted:#6f6b63;--line:#e7e3da;--accent:#2b59c3;--chip:#f1eee7}
@@ -129,6 +147,10 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
   background-image:radial-gradient(120% 140% at 100% 0%,#3a2a20 0%,#111 55%)}
 .photo h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em}.photo p{color:#bbb;margin:10px 0 0;max-width:460px}
 .photo .btn{border-color:#444;color:#fff}.photo .btn:hover{border-color:#fff}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cell{aspect-ratio:4/5;border-radius:16px;overflow:hidden;display:block}.cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.strip:hover .cell img{transform:scale(1.03)}
+.ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#8a8f94}
+.vsco{margin:16px 0 0;color:var(--muted);font-size:15px}
 .more{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .mcard{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px;transition:border-color .2s}
 .mcard:hover{border-color:var(--ink)}.mcard:hover .ti{background:var(--ink);color:#fff}.mcard .ti{flex:none}
@@ -138,7 +160,7 @@ footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1
 .fine{color:var(--muted);font-size:13px;margin-top:48px}
 @media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 64px}.portrait{max-width:112px;justify-self:start;order:-1}
  .grid,.exp,.more{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
-@media (max-width:520px){.sh p{display:none}.wrap{padding:0 16px}section{padding:56px 0}.photo{padding:32px 24px;grid-template-columns:1fr}.job{flex-direction:column}}
+@media (max-width:520px){#work .sh p{display:none}.strip{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}section{padding:56px 0}.photo{padding:32px 24px;grid-template-columns:1fr}.job{flex-direction:column}}
 """
 
 def build_b():
@@ -155,8 +177,8 @@ def build_b():
   <div class="hero"><div>
     <span class="eyebrow"><i></i>Software engineer at Amazon Music</span>
     <h1>Sanjit Kumar</h1>
-    <p class="lede">I'm Sanjit Kumar, a software engineer at <a class="ul" href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a> in Seattle, working on subscription growth across voice and mobile. I hold a master's degree in computer science from the <a class="ul" href="https://cs.illinois.edu" target="_blank" rel="noopener">University of Illinois Urbana-Champaign (UIUC)</a>. I am broadly interested in full stack software development, distributed and networked systems.</p>
-    <p class="lede">Outside of work, you can find me on a road bike, camera in hand, on the hunt for a new coffee shop I can read a book at.</p>
+    <p class="lede">I'm a software engineer at <a class="ul" href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a> in Seattle, working on subscription growth for voice, mostly through Alexa devices. Before that, I did my master's in computer science at the <a class="ul" href="https://cs.illinois.edu" target="_blank" rel="noopener">University of Illinois Urbana-Champaign (UIUC)</a>, with a focus on distributed systems.</p>
+    <p class="lede">Outside of work, you can find me road biking in search of a new coffee shop, or photographing the beautiful PNW hikes around the city.</p>
     <div class="btns"><a class="btn primary" href="../data/SanjitKumarResume_FullStack.pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg>Resume</a>
       <a class="btn" href="mailto:sanjitk2018@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
       <a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
@@ -165,12 +187,9 @@ def build_b():
   <section id="experience"><div class="sh"><h2>Experience</h2></div><div class="exp">{jobs}</div></section>
   <section id="work"><div class="sh"><h2>Selected work</h2><p>Systems, kernels, graphics.</p></div>
     <div class="grid">{cards}</div><div class="list">{lis}</div></section>
-  <section id="photography"><div class="sh"><h2>Beyond work</h2></div><div class="more">
-    <a class="mcard" href="{PUBLICATION['url']}" target="_blank" rel="noopener"><span class="ti"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
-      <div><div class="tag">Publication · AIMV 2021</div><h3>{e(PUBLICATION['title'])}</h3><span class="go">Read on IEEE Xplore ↗</span></div></a>
-    <a class="mcard" href="{VSCO}" target="_blank" rel="noopener"><span class="ti"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span>
-      <div><div class="tag">Photography</div><h3>My photography, collected on VSCO.</h3><span class="go">Open gallery ↗</span></div></a>
-  </div></section>
+  <section id="photography"><div class="sh"><h2>Photography</h2><p><a class="ul" href="photography.html">View gallery →</a></p></div>
+    <a class="strip" href="photography.html">{photo_strip()}</a>
+    <p class="vsco">More on <a class="ul" href="{VSCO}" target="_blank" rel="noopener">VSCO ↗</a></p></section>
   <footer><p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer>
 </main>"""
     return page("Cards", "family=Inter:wght@400;500;600;700", CSS_B, body)
@@ -246,10 +265,46 @@ def build_c():
   </main></div>"""
     return page("Split", "family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500", CSS_C, body, JS_C)
 
+CSS_G = r"""
+.gh{padding:72px 0 32px}.gh h1{margin:0 0 12px}.gh p{color:var(--muted);font-size:18px;margin:0;max-width:560px}
+.masonry{columns:3 300px;column-gap:14px;padding-bottom:40px}
+.masonry .m{break-inside:avoid;margin:0 0 14px;border-radius:14px;overflow:hidden;display:block}
+.masonry .m img{width:100%;display:block}
+.masonry .ph{min-height:220px}
+.back{display:inline-flex;gap:6px;color:var(--muted);font-size:14px;margin-top:24px}.back:hover{color:var(--ink)}
+"""
+def build_gallery():
+    fs = photos()
+    ratios = ['4/5', '3/2', '1/1', '4/5', '3/4', '3/2', '4/5', '1/1', '3/2', '3/4', '4/5', '3/2']
+    if fs:
+        tiles = ''.join(f'<a class="m" href="../images/photography/{f}">{tile(i, f, "../")}</a>' for i, f in enumerate(fs))
+    else:
+        tiles = ''.join(f'<span class="m" style="aspect-ratio:{r}">{tile(i, None, "../")}</span>' for i, r in enumerate(ratios))
+    head = f"""<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photography | Sanjit Kumar</title>
+  <meta name="description" content="Photography by Sanjit Kumar: road rides, PNW hikes and Seattle.">
+  <meta name="author" content="Sanjit Kumar"><link rel="canonical" href="https://sanjitkumar.me/photography.html">
+  <meta property="og:type" content="website"><meta property="og:title" content="Photography | Sanjit Kumar"><meta property="og:url" content="https://sanjitkumar.me/photography.html">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">"""
+    nav = f"""<nav><div class="wrap"><a class="brand" href="b-cards.html">Sanjit Kumar</a>
+  <ul><li><a href="b-cards.html#experience">Experience</a></li><li><a href="b-cards.html#work">Work</a></li><li><a href="photography.html" style="color:var(--ink)">Photography</a></li></ul>
+  <a class="cta" href="mailto:sanjitk2018@gmail.com">Get in touch</a></div></nav>"""
+    body = f"""{nav}<main class="wrap"><div class="gh"><h1>Photography</h1><p>Road rides, PNW hikes and the city. More on <a class="ul" href="{VSCO}" target="_blank" rel="noopener">VSCO ↗</a></p>
+  <a class="back" href="b-cards.html">← Back home</a></div><div class="masonry">{tiles}</div>
+  <footer><p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer></main>"""
+    return f"""<!DOCTYPE html>
+<html lang="en"><head>{head}
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>{CSS_B}{CSS_G}</style></head><body>
+{body}
+</body></html>
+"""
+
 INDEX = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>Redesign mockups</title><style>body{font:16px/1.6 system-ui;max-width:560px;margin:64px auto;padding:0 16px}a{display:block;padding:14px 0;border-bottom:1px solid #eee}</style></head>
 <body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio (experience first)</a><a href="d-bento.html">D · Bento: card-grid sibling of B</a><a href="e-index.html">E · Index: Swiss editorial, oversized type</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
 
 if __name__ == "__main__":
-    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX)
+    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT/'photography.html').write_text(build_gallery())
     print("built")
