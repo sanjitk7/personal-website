@@ -162,11 +162,16 @@ footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1
 @media (max-width:520px){#work .sh p{display:none}.strip{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}section{padding:56px 0}.job{flex-direction:column}}
 """
 
+def dims(f):
+    from PIL import Image
+    w, h = Image.open(OUT.parent / 'images' / f).size
+    return f'width="{w}" height="{h}"'
+
 def card(p):
     """Project card. With img_hover, the second image cross-fades in on hover (base fades out, so transparent PNGs never overlay)."""
     h = p.get('img_hover')
-    imgs = (f'<img class="base" src="../images/{p["img"]}" alt="{e(p["name"])}" loading="lazy">'
-            + (f'<img class="hov" src="../images/{h}" alt="" loading="lazy">' if h else ''))
+    imgs = (f'<img class="base" src="../images/{p["img"]}" alt="{e(p.get("alt", p["name"]))}" {dims(p["img"])} loading="lazy">'
+            + (f'<img class="hov" src="../images/{h}" alt="" {dims(h)} loading="lazy">' if h else ''))
     return (f'<a class="card" href="{p["url"]}"{ext(p["url"])}><div class="img{" swap" if h else ""}">{imgs}</div>'
             f'<div class="c"><div class="tag">{e(p["tag"])}</div><h3>{e(p["name"])}</h3><p>{e(p["line"])}</p></div></a>')
 
@@ -174,8 +179,8 @@ def build_b():
     feat = [p for p in PROJECTS if p['featured']]; rest = [p for p in PROJECTS if not p['featured']]
     cards = "".join(card(p) for p in feat)
     lis = "".join(f"""<a class="li" href="{p['url']}"{ext(p['url'])}><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{ICONS.get(p['name'],'')}</svg></span><b>{e(p['name'])}</b><span>{e(p['line'])}</span><em>{' · '.join(p['stack'])} ↗</em></a>""" for p in rest)
-    jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" loading="lazy">
-      <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}{(' ' + e(x['metric_sentence'])) if x.get('metric_sentence') else ''}</p></div></div>""" for x in EXPERIENCE)
+    jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" width="44" height="44" loading="lazy">
+      <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{x.get('summary_html') or e(x['summary'])}{(' ' + e(x['metric_sentence'])) if x.get('metric_sentence') else ''}</p></div></div>""" for x in EXPERIENCE)
     body = f"""<nav><div class="wrap"><a class="brand" href="#">Sanjit Kumar</a>
   <ul><li><a href="#experience">Experience</a></li><li><a href="#work">Work</a></li>{'<li><a href="#photography">Photography</a></li>' if photos() else ''}</ul>
   <a class="cta" href="mailto:sanjitk2018@gmail.com">Get in touch</a></div></nav>
@@ -335,10 +340,20 @@ def build_b_carousel():
     html = html.replace('</style>', CSS_CAR + '</style>', 1)
     return html.replace('</body>', f'<script>{JS_CAR}</script>\n</body>', 1)
 
+def build_site():
+    """Production homepage: the carousel version of B, served from the repo root."""
+    html = build_b_carousel()
+    html = html.replace('<span class="eyebrow"><i></i>Software engineer at Amazon Music</span>\n    ', '')
+    html = html.replace("<p class=\"lede\">I'm a software engineer at", "<p class=\"lede\">I'm Sanjit Kumar, a software engineer at", 1)
+    html = html.replace('"../images/', '"images/').replace('"../data/', '"data/').replace('href="../images/', 'href="images/')
+    html = html.replace('<h1>Sanjit Kumar</h1>', '<h1 style="margin-top:0">Sanjit Kumar</h1>')
+    assert 'eyebrow"><i>' not in html and "I'm Sanjit Kumar, a software engineer" in html and '../' not in html
+    return html
+
 INDEX = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
 <title>Redesign mockups</title><style>body{font:16px/1.6 system-ui;max-width:560px;margin:64px auto;padding:0 16px}a{display:block;padding:14px 0;border-bottom:1px solid #eee}</style></head>
 <body><h1>Redesign mockups</h1><a href="a-quiet.html">A · Quiet: text-first single column</a><a href="b-cards.html">B · Cards: modern portfolio (experience first)</a><a href="b-carousel.html">B · Carousel: all projects as image cards with arrows</a><a href="d-bento.html">D · Bento: card-grid sibling of B</a><a href="e-index.html">E · Index: Swiss editorial, oversized type</a><a href="c-split.html">C · Split: dark, sticky sidebar</a></body></html>"""
 
 if __name__ == "__main__":
-    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'b-carousel.html').write_text(build_b_carousel()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT/'photography.html').write_text(build_gallery()) if photos() else (OUT/'photography.html').unlink(missing_ok=True)
+    (OUT/'a-quiet.html').write_text(build_a()); (OUT/'b-cards.html').write_text(build_b()); (OUT/'b-carousel.html').write_text(build_b_carousel()); (OUT/'c-split.html').write_text(build_c()); (OUT/'index.html').write_text(INDEX); (OUT.parent/'index.html').write_text(build_site()); (OUT/'photography.html').write_text(build_gallery()) if photos() else (OUT/'photography.html').unlink(missing_ok=True)
     print("built")
