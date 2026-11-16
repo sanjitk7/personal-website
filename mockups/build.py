@@ -138,8 +138,8 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
 .card .img{position:relative;aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--line)}
 .card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px;transition:opacity .3s}
 .card .img .hov{opacity:0}
-@media (hover:hover){.card:hover .img .base{opacity:0}.card:hover .img .hov{opacity:1}}
-.card:focus-visible .img .base{opacity:0}.card:focus-visible .img .hov{opacity:1}
+@media (hover:hover){.card:hover .swap .base{opacity:0}.card:hover .swap .hov{opacity:1}}
+.card:focus-visible .swap .base{opacity:0}.card:focus-visible .swap .hov{opacity:1}
 .card .c{padding:20px 22px 24px}.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .card h3{font-size:19px;letter-spacing:-.01em;margin:6px 0 8px}.card p{margin:0;color:var(--muted);font-size:15px}
 .list{margin-top:28px;border-top:1px solid var(--line)}
@@ -167,7 +167,7 @@ def card(p):
     h = p.get('img_hover')
     imgs = (f'<img class="base" src="../images/{p["img"]}" alt="{e(p["name"])}" loading="lazy">'
             + (f'<img class="hov" src="../images/{h}" alt="" loading="lazy">' if h else ''))
-    return (f'<a class="card" href="{p["url"]}"{ext(p["url"])}><div class="img">{imgs}</div>'
+    return (f'<a class="card" href="{p["url"]}"{ext(p["url"])}><div class="img{" swap" if h else ""}">{imgs}</div>'
             f'<div class="c"><div class="tag">{e(p["tag"])}</div><h3>{e(p["name"])}</h3><p>{e(p["line"])}</p></div></a>')
 
 def build_b():

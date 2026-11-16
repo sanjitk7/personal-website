@@ -41,7 +41,11 @@ const opacities = el => [...el.querySelectorAll('.img img')].map(im => +getCompu
         ok(info.imgs[0].cls === 'base' && info.imgs[0].op === 1, `${id} default image not visible at rest`);
         if (hasHov) ok(info.imgs[1].op === 0, `${id} hover image visible at rest`);
         if (canHover && page === 'b-carousel') await (await c.$('.img')).screenshot({ path: `${out}/h-${i}-before.png` });
-        if (!hasHov) continue;
+        if (!hasHov) { // a card without a second image must never go blank on hover
+          await c.hover(); await p.waitForTimeout(450);
+          ok((await c.evaluate(opacities))[0] === 1, `${id} has no hover image and goes blank on hover`);
+          await p.mouse.move(0, 0); continue;
+        }
 
         await c.hover(); await p.waitForTimeout(450);
         const ops = await c.evaluate(opacities);
