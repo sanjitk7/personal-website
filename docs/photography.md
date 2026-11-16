@@ -1,7 +1,7 @@
 # Adding photography to the site
 
 Status: **parked**. The Photography section and gallery page are switched off until photos are added.
-They turn on automatically as soon as image files exist in `images/photography/`.
+The prototype and the generator for this page are kept in git history (see step 3 below).
 
 ## Why not embed VSCO?
 
@@ -35,9 +35,10 @@ Either attach them in the project thread, or put them in a folder on the Mac (fo
 1. Convert each photo to WebP at 1600px on the long edge, quality ~80, stripping EXIF (`cwebp -resize` or Pillow).
    Also produce an 800px version for the homepage strip if file sizes are large.
 2. Save them to `images/photography/` using the ordered filenames.
-3. Run `python3 mockups/build.py`. The build detects the files and:
-   - adds the Photography section (4-photo strip, "View gallery →", "More on VSCO ↗") and its nav link to the homepage,
-   - generates the gallery page (`photography.html`) as a masonry grid.
+3. In `index.html`, add a "Photography" section after "Selected work" (a 4-photo strip linking to the gallery,
+   plus "More on VSCO ↗"), and a "Photography" nav link. Create `photography.html` with its own title, description
+   and canonical, using the same nav and a masonry grid of the photos. The original prototype for both is in git
+   history: `git show 86d52a6:mockups/build.py` (look for `photo_section`, `photo_strip` and `build_gallery`).
 4. Use the alt text, if given, instead of the generic "Photo by Sanjit Kumar".
 5. When going live: add `https://sanjitkumar.me/photography.html` to `sitemap.xml`, and keep the page's own
    title, description and canonical tags.

@@ -1,6 +1,5 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,7 +62,7 @@
 }
   </script>
 
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -76,568 +75,172 @@
 
   gtag('config', 'G-76HT9824K8');
 </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+:root{--bg:#ffffff;--surface:#f5f5f4;--ink:#0c0c0d;--muted:#5f6368;--line:#e8e8e6;--accent:#ff5a1f}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-weight:600;letter-spacing:-.01em}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}nav ul a:hover{color:var(--ink)}
+.cta{background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center;padding:88px 0 96px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);background:var(--surface);border-radius:999px;padding:5px 12px 5px 8px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px #22c55e33}
+h1{font-size:clamp(44px,6.4vw,76px);line-height:1;letter-spacing:-.04em;font-weight:600;margin:20px 0 14px}
+.sub{font-size:clamp(22px,2.6vw,30px);line-height:1.25;letter-spacing:-.02em;font-weight:500;margin:0 0 18px;max-width:560px}
+.lede{font-size:18px;color:var(--muted);max-width:560px;margin:0 0 16px}.lede+.btns{margin-top:28px}.ul{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.ul:hover{text-decoration-color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:500;transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.portrait{aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:var(--surface);max-width:400px;justify-self:end;width:100%}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:32px}
+h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
+.card:hover{transform:translateY(-4px)}
+.card .img{position:relative;aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--line)}
+.card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px;transition:opacity .3s}
+.card .img .hov{opacity:0}
+@media (hover:hover){.card:hover .swap .base{opacity:0}.card:hover .swap .hov{opacity:1}}
+.card:focus-visible .swap .base{opacity:0}.card:focus-visible .swap .hov{opacity:1}
+.card .c{padding:20px 22px 24px}.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.card h3{font-size:19px;letter-spacing:-.01em;margin:6px 0 8px}.card p{margin:0;color:var(--muted);font-size:15px}
+.list{margin-top:28px;border-top:1px solid var(--line)}
+.ti{width:44px;height:44px;border-radius:12px;background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.li:hover .ti{background:var(--ink);color:#fff}
+.li{display:grid;grid-template-columns:44px 200px 1fr auto;gap:24px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);transition:background .2s}
+.li:hover{background:var(--surface)}.li b{font-weight:600}.li span{color:var(--muted);font-size:15px}.li em{font-style:normal;color:var(--muted);font-size:13px}
+.exp{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.job{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px}
+.job img{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--line);flex:none}
+.job h3{font-size:17px;margin:0}.job .m{color:var(--muted);font-size:14px;margin:2px 0 10px}.job p{margin:0;font-size:15px;color:var(--muted)}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cell{aspect-ratio:4/5;border-radius:16px;overflow:hidden;display:block}.cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.strip:hover .cell img{transform:scale(1.03)}
+.ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#8a8f94}
+.vsco{margin:16px 0 0;color:var(--muted);font-size:15px}
+footer{padding:8px 0 40px;border-top:1px solid var(--line)}
+footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1;margin-bottom:24px}
+.fine{color:var(--muted);font-size:13px;margin-top:48px}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 64px}.portrait{max-width:112px;justify-self:start;order:-1}
+ .grid,.exp{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
+@media (max-width:520px){#work .sh p{display:none}.strip{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}section{padding:56px 0}.job{flex-direction:column}}
+
+.carhead{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.arrows{display:flex;gap:8px;align-items:center}.count{font-size:14px;color:var(--muted);margin-right:8px;font-variant-numeric:tabular-nums}
+.arr{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);transition:border-color .2s,opacity .2s}
+.arr:hover{border-color:var(--ink)}.arr:disabled{opacity:.35;cursor:default;border-color:var(--line)}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:6px 0 4px}
+.track::-webkit-scrollbar{display:none}.track .card{scroll-snap-align:start}
+@media (max-width:860px){.track{grid-auto-columns:calc((100% - 20px)/2)}}
+@media (max-width:520px){.track{grid-auto-columns:86%;gap:14px}.count{display:none}}
+
+.carhead{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.arrows{display:flex;gap:8px;align-items:center}.count{font-size:14px;color:var(--muted);margin-right:8px;font-variant-numeric:tabular-nums}
+.arr{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);transition:border-color .2s,opacity .2s}
+.arr:hover{border-color:var(--ink)}.arr:disabled{opacity:.35;cursor:default;border-color:var(--line)}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:6px 0 4px}
+.track::-webkit-scrollbar{display:none}.track .card{scroll-snap-align:start}
+@media (max-width:860px){.track{grid-auto-columns:calc((100% - 20px)/2)}}
+@media (max-width:520px){.track{grid-auto-columns:86%;gap:14px}.count{display:none}}
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+:root{--bg:#ffffff;--surface:#f5f5f4;--ink:#0c0c0d;--muted:#5f6368;--line:#e8e8e6;--accent:#ff5a1f}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.brand{font-weight:600;letter-spacing:-.01em}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}nav ul a:hover{color:var(--ink)}
+.cta{background:var(--ink);color:#fff;border-radius:999px;padding:8px 16px;font-size:14px;font-weight:500}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center;padding:88px 0 96px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);background:var(--surface);border-radius:999px;padding:5px 12px 5px 8px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px #22c55e33}
+h1{font-size:clamp(44px,6.4vw,76px);line-height:1;letter-spacing:-.04em;font-weight:600;margin:20px 0 14px}
+.sub{font-size:clamp(22px,2.6vw,30px);line-height:1.25;letter-spacing:-.02em;font-weight:500;margin:0 0 18px;max-width:560px}
+.lede{font-size:18px;color:var(--muted);max-width:560px;margin:0 0 16px}.lede+.btns{margin-top:28px}.ul{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}.ul:hover{text-decoration-color:var(--ink)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14px;font-weight:500;transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.portrait{aspect-ratio:1/1;border-radius:50%;overflow:hidden;background:var(--surface);max-width:400px;justify-self:end;width:100%}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:32px}
+h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;color:var(--muted);font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
+.card:hover{transform:translateY(-4px)}
+.card .img{position:relative;aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--line)}
+.card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px;transition:opacity .3s}
+.card .img .hov{opacity:0}
+@media (hover:hover){.card:hover .swap .base{opacity:0}.card:hover .swap .hov{opacity:1}}
+.card:focus-visible .swap .base{opacity:0}.card:focus-visible .swap .hov{opacity:1}
+.card .c{padding:20px 22px 24px}.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.card h3{font-size:19px;letter-spacing:-.01em;margin:6px 0 8px}.card p{margin:0;color:var(--muted);font-size:15px}
+.list{margin-top:28px;border-top:1px solid var(--line)}
+.ti{width:44px;height:44px;border-radius:12px;background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}.li:hover .ti{background:var(--ink);color:#fff}
+.li{display:grid;grid-template-columns:44px 200px 1fr auto;gap:24px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line);transition:background .2s}
+.li:hover{background:var(--surface)}.li b{font-weight:600}.li span{color:var(--muted);font-size:15px}.li em{font-style:normal;color:var(--muted);font-size:13px}
+.exp{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.job{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px}
+.job img{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--line);flex:none}
+.job h3{font-size:17px;margin:0}.job .m{color:var(--muted);font-size:14px;margin:2px 0 10px}.job p{margin:0;font-size:15px;color:var(--muted)}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.cell{aspect-ratio:4/5;border-radius:16px;overflow:hidden;display:block}.cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.strip:hover .cell img{transform:scale(1.03)}
+.ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#8a8f94}
+.vsco{margin:16px 0 0;color:var(--muted);font-size:15px}
+footer{padding:8px 0 40px;border-top:1px solid var(--line)}
+footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1;margin-bottom:24px}
+.fine{color:var(--muted);font-size:13px;margin-top:48px}
+@media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 64px}.portrait{max-width:112px;justify-self:start;order:-1}
+ .grid,.exp{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
+@media (max-width:520px){#work .sh p{display:none}.strip{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}section{padding:56px 0}.job{flex-direction:column}}
+</style>
 </head>
-
-
-
-
 <body>
-  <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr id="distributed-systems-ta" style="padding:0px">
-        <td style="padding:0px">
+<nav><div class="wrap"><a class="brand" href="#">Sanjit Kumar</a>
+  <ul><li><a href="#experience">Experience</a></li><li><a href="#work">Work</a></li></ul>
+  <a class="cta" href="mailto:sanjitk2018@gmail.com">Get in touch</a></div></nav>
+<main class="wrap">
+  <div class="hero"><div>
+    <h1 style="margin-top:0">Sanjit Kumar</h1>
+    <p class="lede">I'm Sanjit Kumar, a software engineer at <a class="ul" href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a> in Seattle, working on subscription growth for voice, mostly through Alexa devices. Before that, I did my master's in computer science at the <a class="ul" href="https://cs.illinois.edu" target="_blank" rel="noopener">University of Illinois Urbana-Champaign (UIUC)</a>, with a focus on distributed systems.</p>
+    <p class="lede">Outside of work, you can find me road biking in search of a new coffee shop, or photographing the beautiful PNW hikes around the city.</p>
+    <div class="btns"><a class="btn primary" href="data/SanjitKumarResume_FullStack.pdf"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg>Resume</a>
+      <a class="btn" href="mailto:sanjitk2018@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a>
+      <a class="btn" href="https://github.com/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/sanjitk7/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a></div></div>
+    <div class="portrait"><img src="images/sanjit-profile-pic-circle.jpeg" alt="Sanjit Kumar, software engineer at Amazon" width="400" height="400"></div></div>
+  <section id="experience"><div class="sh"><h2>Experience</h2></div><div class="exp"><div class="job"><img src="images/amz.png" alt="Amazon Music logo" width="44" height="44" loading="lazy">
+      <div><h3>Software Development Engineer</h3><div class="m"><a href="https://music.amazon.com" target="_blank" rel="noopener">Amazon Music</a> · Sep 2024 – Present</div><p>Experimental upsell experiences via proactive voice notifications at scale, plus Android upsell and engagement work. Together these helped drive 150k+ annualized tier signups.</p></div></div><div class="job"><img src="images/uofilogoblue2.jpeg" alt="UIUC Computer Science logo" width="44" height="44" loading="lazy">
+      <div><h3>Graduate TA, Distributed Systems</h3><div class="m"><a href="https://cs.illinois.edu" target="_blank" rel="noopener">UIUC Computer Science</a> · Jan – May 2024</div><p>CS425 with <a class="ul" href="https://radhikam.web.illinois.edu" target="_blank" rel="noopener">Prof. Radhika Mittal</a>.</p></div></div><div class="job"><img src="images/aviz-logo-transparent.webp" alt="Aviz Networks logo" width="44" height="44" loading="lazy">
+      <div><h3>Software Engineer Intern</h3><div class="m"><a href="https://www.aviznetworks.com" target="_blank" rel="noopener">Aviz Networks</a> · May – Nov 2023</div><p>Built a core ONE-DL feature streaming data-center packet metadata to the cloud with Kafka, Elasticsearch and Redis, tuned with batching and DPDK kernel bypass. Reached 3× throughput and 50% lower latency.</p></div></div><div class="job"><img src="images/webknot-logo-purple.png" alt="WebKnot Technologies logo" width="44" height="44" loading="lazy">
+      <div><h3>Full Stack Developer Intern</h3><div class="m"><a href="https://webknot.in" target="_blank" rel="noopener">WebKnot Technologies</a> · Nov – Dec 2020</div><p>React UIs and Node/Express APIs for two MERN apps; integrated TensorFlow object detection with the Shinobi CCTV framework.</p></div></div></div></section>
+  <section id="work"><div class="carhead"><h2>Selected work</h2><div class="arrows"><span class="count"></span>
+      <button class="arr prev" aria-label="Previous projects"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><button class="arr next" aria-label="Next projects"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button></div></div>
+    <div class="track"><a class="card" href="https://github.com/sanjitk7/cs425-distributed-systems/tree/master/MP4" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/idunno-1.png" alt="IDunno distributed ML inference scheduler architecture" width="480" height="302" loading="lazy"><img class="hov" src="images/idunno-2.png" alt="" width="480" height="311" loading="lazy"></div><div class="c"><div class="tag">Distributed systems</div><h3>IDunno</h3><p>A distributed ML inference scheduler on 10 Linux VMs, built from scratch.</p></div></a><a class="card" href="https://github.com/sanjitk7/linux-kernel-modules/tree/master" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/osd_mp3.png" alt="Linux kernel page fault profiler graph" width="480" height="292" loading="lazy"><img class="hov" src="images/osd_mp1.png" alt="" width="480" height="225" loading="lazy"></div><div class="c"><div class="tag">Operating systems</div><h3>Linux kernel modules</h3><p>A page fault profiler, a rate-monotonic scheduler and a CPU time tracker as kernel modules.</p></div></a><a class="card" href="https://graphics-projects.sanjitkumar.me/" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/webgl-6.png" alt="WebGL flight simulation over generated terrain" width="480" height="328" loading="lazy"><img class="hov" src="images/webgl-3-1.png" alt="" width="480" height="343" loading="lazy"></div><div class="c"><div class="tag">Graphics</div><h3>Interactive computer graphics</h3><p>A rasterizer and ray tracer from scratch, plus WebGL terrain, flight and particle simulations.</p></div></a><a class="card" href="https://github.com/sanjitk7/data-systems-projects" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/flatbuffers.png" alt="FlatBuffers shared memory serialization diagram" width="480" height="253" loading="lazy"><img class="hov" src="images/arrow.png" alt="" width="1978" height="723" loading="lazy"></div><div class="c"><div class="tag">Data systems</div><h3>Data systems &amp; ML</h3><p>Online aggregation, HyperLogLog, a Parquet ASCII encoder in Apache Arrow, and Flatbuffers over shared memory.</p></div></a><a class="card" href="https://youtu.be/3ebt6BfSug0" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/clover-coverage-2.png" alt="Clover code coverage report" width="480" height="255" loading="lazy"><img class="hov" src="images/fault-localization-mbfl.png" alt="" width="611" height="115" loading="lazy"></div><div class="c"><div class="tag">Software testing</div><h3>RealWorldBugDiscovery</h3><p>Benchmarking real-world bugs from Defects4J, BugSwarm, Bears and QuixBugs against Randoop and EvoSuite.</p></div></a><a class="card" href="https://github.com/ambur-biryani/wild-sprint-frontend" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/wild-sprint-3.png" alt="WildSprint live stream donation page" width="480" height="222" loading="lazy"><img class="hov" src="images/wild-sprint-1.png" alt="" width="480" height="230" loading="lazy"></div><div class="c"><div class="tag">Hackathon winner</div><h3>WildSprint</h3><p>ETH-powered fundraising for wildlife sanctuaries with live streams. Two awards at DevSpace &#x27;21.</p></div></a><a class="card" href="https://github.com/sanjitk7/KYYarnTrader" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/ky-3.jpg" alt="KYYarn product catalogue" width="480" height="295" loading="lazy"><img class="hov" src="images/ky-1.png" alt="" width="480" height="275" loading="lazy"></div><div class="c"><div class="tag">Full stack</div><h3>KYYarn</h3><p>A MERN catalogue and BI dashboard for a yarn trading company in Erode, India.</p></div></a><a class="card" href="https://github.com/sanjitk7/MapReducePython" target="_blank" rel="noopener"><div class="img swap"><img class="base" src="images/mapred-2.png" alt="DockerMapReduce throughput results" width="480" height="243" loading="lazy"><img class="hov" src="images/mapred-1.png" alt="" width="480" height="323" loading="lazy"></div><div class="c"><div class="tag">Distributed systems</div><h3>DockerMapReduce</h3><p>MapReduce word counts across Docker containers acting as map and reduce nodes.</p></div></a></div></section>
+  <footer><p class="fine">© 2026 Sanjit Kumar · Seattle, WA</p></footer>
+</main>
 
-
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <h1 class="name" style="text-align:center">Sanjit Kumar</h1>
-                  <p>I'm Sanjit Kumar, a software engineer at <a href="https://music.amazon.com">Amazon Music</a> in Seattle,
-                    working on subscription growth across voice and mobile.
-                    I hold a master's degree in computer science from the <a
-                      href="https://cs.illinois.edu">University of Illinois Urbana-Champaign (UIUC)</a>.
-                    I am broadly interested in full stack software development, distributed and networked systems.
-                  </p>
-                  <p>
-                    Outside of work, you can find me on a road bike, camera in hand, on the hunt for a new coffee shop I can read a book at.
-                  </p>
-                  <p style="text-align:center">
-                    <a href="mailto:sanjitk2018@gmail.com">Email</a> &nbsp/&nbsp
-                    <a href="data/SanjitKumarResume_FullStack.pdf">Resume</a> &nbsp/&nbsp
-                    <a href="https://www.linkedin.com/in/sanjitk7/">LinkedIn</a> &nbsp/&nbsp
-                    <a href="https://github.com/sanjitk7/">Github</a> &nbsp/&nbsp
-                    <a href="https://vsco.co/sanjitk7/gallery">Photography</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <a href="images/sanjit-profile-pic-circle.jpeg"><img id="profile-pic" alt="Sanjit Kumar, software engineer at Amazon" width="400" height="400"
-                      src="images/sanjit-profile-pic-circle.jpeg" class="hoverZoomLink" /></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2 class="heading">Experience</h2>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <img alt="Amazon logo" loading="lazy" src='images/amz.png' width="160" height="161">
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <b>Software Development Engineer @ </b>
-                  <a href="https://music.amazon.com">
-                    <papertitle>Amazon</papertitle>
-                  </a>
-                  <br>
-                  <em>Sep 2024 - present | Seattle, WA</em>
-                  <br><br>
-                  Amazon Music Growth: Tier Progressions
-                  <br><br>
-                  Built and shipped experimental upsell experiences delivered through proactive voice notifications at scale.
-                  Also worked on Android initiatives for upsells and engagement.
-                  Together these have helped drive 150k+ annualized Amazon Music tier signups.
-                  <br><br>                    
-                  <br><br>
-                </td>
-              </tr>
-              <!-- <tr bgcolor="#ffffd0"> -->
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <img alt="University of Illinois Urbana-Champaign logo" loading="lazy" src='images/uofilogoblue2.jpeg' width="160" height="160">
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <b>Graduate Teaching Assistant: Distributed Systems @ </b>
-                  <a href="https://cs.illinois.edu">
-                    <papertitle>Dept. of Computer Science, UIUC</papertitle>
-                  </a>
-                  <br>
-                  <em>Jan 2024 - May 2024 | Champaign, IL</em>
-                  <br><br>
-                  Worked with <a href="https://radhikam.web.illinois.edu">Prof. Radhika Mittal</a> on the course <a
-                    href="https://github.com/sanjitk7/distributed-file-system-plus-scheduler">CS425: Distributed Systems</a> - 
-                  <em>asynchronous clocks, global system snapshots, failure detection, concurrency
-                    control, consensus via paxos/raft, leader election, distributed transactions, DHTs
-                    and P2P systems etc, distributed datastores etc.</em> <br><br> Mentored students to build
-                  distributed &
-                  networked application projects on <u>reliable multicasting, distributed
-                    transactions, raft, distributed file system.</u>
-                  <br><br>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <img alt="Aviz Networks logo" loading="lazy" src='images/aviz-logo-transparent.webp' width="160" height="160">
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <b>Software Engineer Intern @ </b>
-                  <a href="https://www.aviznetworks.com">
-                    <papertitle>Aviz Networks Inc.</papertitle>
-                  </a>
-                  <br>
-                  <em>May 2023 - Nov 2023 | San Jose, CA</em>
-                  <br><br>
-                  Designed and developed a new core feature for ONE-DL, the company's primary product, that moves
-                  network data from on-premise environments to the cloud via Kafka. Built a network packet collector
-                  that taps high-throughput data-center traffic to extract and stream metadata, using Kafka and
-                  Elasticsearch for pipelining. Added a REST API and Redis cache for selective packet capture and data
-                  sink integrations. Optimized the pipeline with payload batching and DPDK-based kernel bypass
-                  strategies, achieving 3x throughput and 50% lower latency. Benchmarked with Scapy and Ixia load
-                  generators.
-                  <br><br>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <img alt="WebKnot Technologies logo" loading="lazy" src='images/webknot-logo-purple.png' width="160" height="160">
-                  </div>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <b>Full Stack Developer Intern @ </b>
-                  <a href="https://webknot.in">
-                    <papertitle>WebKnot Technologies</papertitle>
-                  </a>
-                  <br>
-                  <em> Nov 2020 - Dec 2020 | Bangalore, India</em>
-                  <br><br>
-                  Developed UI with ReactJS and wrote REST API endpoints with node.js and Express.js for two different
-                  MERN stack applications. Integrated custom Tensorflow object detection models with Shinobi
-                  (open-source CCTV framework).
-                  <br><br>
-                </td>
-              </tr>
-
-            </tbody>
-          </table>
-
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px;width:100%;vertical-align:middle">
-                  <h2 class="heading">Projects</h2>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-
-
-
-              <tr onmouseout="idunno_stop()" onmouseover="idunno_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='idunno_image'>
-                      <img alt="IDunno scheduler results" loading="lazy" src='images/idunno-2.png' width="160" height="104">
-                    </div>
-                    <img alt="IDunno distributed ML inference scheduler architecture" loading="lazy" src='images/idunno-1.png' width="160" height="101">
-                  </div>
-                  <script type="text/javascript">
-                    function idunno_start() {
-                      document.getElementById('idunno_image').style.opacity = "1";
-                    }
-
-                    function idunno_stop() {
-                      document.getElementById('idunno_image').style.opacity = "0";
-                    }
-                    idunno_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/sanjitk7/cs425-distributed-systems/tree/master/MP4">
-                    <papertitle>IDunno: </papertitle>
-                  </a>
-                  <b>A Distributed ML Inference Task Scheduler System </b>
-                  <br>
-                  <!-- <em>Fall 2022 @ UIUC</em>  -->
-                  <br>
-                  <!-- <br> -->
-                  Designed a distributed job scheduler system for ML inference tasks built on top of 10 Linux VMs from
-                  scratch using Java and Python. Uses a real-time work scheduling algorithm to optimize query rate for
-                  ResNet and ImageNet classification tasks. Includes a distributed data logging service, distributed
-                  group membership protocol and failure detector, a distributed files system.
-                  <br><br>
-                </td>
-              </tr>
-
-              <!--  -->
-              <!--  -->
-
-              <tr id="operating-system-design" onmouseout="osd_stop()" onmouseover="osd_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='osd_image'>
-                      <img alt="Linux kernel page fault profiler graph" loading="lazy" src='images/osd_mp3.png' width="160" height="97">
-                      <!-- <img src='images/arrow.png' width="160"> -->
-                    </div>
-                    <!-- <img src='https://arrow.apache.org/img/arrow-logo_hex_white-txt_black-bg.png' width="160"> -->
-                      <!-- <img alt="Apache Arrow logo" loading="lazy" src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160"> -->
-                    <img alt="Linux kernel module CPU time output" loading="lazy" src='images/osd_mp1.png' width="160" height="75">
-                  </div>
-                  <script type="text/javascript">
-                    function osd_start() {
-                      document.getElementById('osd_image').style.opacity = "1";
-                    }
-
-                    function osd_stop() {
-                      document.getElementById('osd_image').style.opacity = "0";
-                    }
-                    // osd_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master">
-                    <papertitle>Linux Kernel Development: </papertitle>
-                  </a>
-                  <b>Kernel Page Fault Profiler, Rate Monotonic Scheduler, Computing Kernel CPU Time</b>
-                  <br>
-                  <br>
-                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/MP3#readme">Page Fault Profiler:</a></u> A kernel-space virtual page fault profiler, monitoring page faults and CPU run times via a virtual memory buffer and delayed work queue at 20 samples per second, and managed process registration through the proc interface.  <br><br>
-                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/">Rate Monotonic Scheduler:</a></u> A real-time CPU scheduler as a Linux kernel module based on Rate-Monotonic Scheduling (RMS) for single-core processors, utilizing the Proc filesystem for user space communication. <br><br>
-                  <u><a href="https://github.com/sanjitk7/linux-kernel-modules/tree/master/MP1#readme">Computing CPU Time:</a></u> A Linux kernel module for process management using a doubly linked list and proc filesystem, featuring periodic CPU time updates via a workqueue and timer callbacks.
-                  <br><br>
-                </td>
-              </tr>
-
-              <!--  -->
-              <!--  -->
-
-              <tr onmouseout="wildsprint_stop()" onmouseover="wildsprint_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='wildsprint_image'>
-                      <img alt="WildSprint wildlife fundraising platform" loading="lazy" src='images/wild-sprint-1.png' width="160" height="77">
-                    </div>
-                    <img alt="WildSprint live stream donation page" loading="lazy" src='images/wild-sprint-3.png' width="160" height="74">
-                  </div>
-                  <script type="text/javascript">
-                    function wildsprint_start() {
-                      document.getElementById('wildsprint_image').style.opacity = "1";
-                    }
-
-                    function wildsprint_stop() {
-                      document.getElementById('wildsprint_image').style.opacity = "0";
-                    }
-                    wildsprint_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/ambur-biryani/wild-sprint-frontend">
-                    <papertitle>WildSprint: </papertitle>
-                  </a>
-                  <b>A Fundraising platform for Wildlife conservation via ETH by Team Ambur Biryani</b>
-                  <br>
-                  <em>Best Ethereum Powered Project @ DevSpace '21 by CSI, VIT &<br>
-                    Best Dyte Powered Project @ DevSpace '21 by CSI, VIT</em>
-                  <br>
-                  <br>
-                  A fundraising platform for wild life sanctuaries that allows for donations via ETH. There are
-                  live-streams from high activity sites at the sanctuaries that allow audience to tune in, watch and
-                  donate for a cause. Demo
-                  <a href="https://www.youtube.com/watch?v=izMW93BM-xs&t=2s">youtube</a>.
-                  <br><br>
-                </td>
-              </tr>
-
-
-
-              <tr onmouseout="ky_stop()" onmouseover="ky_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='ky_image'>
-                      <img alt="KYYarn inventory dashboard" loading="lazy" src='images/ky-1.png' width="160" height="100">
-                    </div>
-                    <img alt="KYYarn product catalogue" loading="lazy" src='images/ky-3.jpg' width="160" height="100">
-                  </div>
-                  <script type="text/javascript">
-                    function ky_start() {
-                      document.getElementById('ky_image').style.opacity = "1";
-                    }
-
-                    function ky_stop() {
-                      document.getElementById('ky_image').style.opacity = "0";
-                    }
-                    ky_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/sanjitk7/KYYarnTrader">
-                    <papertitle>KYYarn: </papertitle>
-                  </a>
-                  <b>A data visualization app for inquiry and product inventory management of a textile yarn trading
-                    company </b>
-                  <!-- <br>
-        <em>Best Ethereum Powered Project @ DevSpace '21 by CSI, VIT &<br>
-          Best Dyte Powered Project @ DevSpace '21 by CSI, VIT</em>  -->
-                  <br>
-                  <br>
-                  MERN Stack business intelligence web application that works as a website/catalogue for a yarn trading
-                  entity in Erode, TN, India to receive business inquiries for products. Data collected is used to
-                  create visualizations for business intelligence.
-                  Also designed and implemented an alternative JavaFX frontend.
-                  <!-- <a href="https://www.youtube.com/watch?v=izMW93BM-xs&t=2s">youtube</a>. -->
-                  <br><br>
-                </td>
-              </tr>
-
-
-              <tr onmouseout="mapreduce_stop()" onmouseover="mapreduce_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='mapreduce_image'>
-                      <img alt="DockerMapReduce architecture" loading="lazy" src='images/mapred-1.png' width="160" height="100">
-                    </div>
-                    <img alt="DockerMapReduce throughput results" loading="lazy" src='images/mapred-2.png' width="160" height="100">
-                  </div>
-                  <script type="text/javascript">
-                    function mapreduce_start() {
-                      document.getElementById('mapreduce_image').style.opacity = "1";
-                    }
-
-                    function mapreduce_stop() {
-                      document.getElementById('mapreduce_image').style.opacity = "0";
-                    }
-                    mapreduce_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/sanjitk7/MapReducePython">
-                    <papertitle>DockerMapReduce: </papertitle>
-                  </a>
-                  <b>A distributed MapReduce simulation with docker nodes </b>
-                  <!-- <br>
-        <em>Best Ethereum Powered Project @ DevSpace '21 by CSI, VIT &<br>
-          Best Dyte Powered Project @ DevSpace '21 by CSI, VIT</em>  -->
-                  <br>
-                  <br>
-                  A MapReduce algorithm for finding frequency of unique words a large volume of text tested on a single
-                  machine with multiple docker containers acting as separate nodes for map and reduce jobs. The
-                  throughput of the task is checked by scaling the data and nodes up and down.
-                  <!-- <a href="https://www.youtube.com/watch?v=izMW93BM-xs&t=2s">youtube</a>. -->
-                  <br><br>
-                </td>
-              </tr>
-
-              <tr onmouseout="graphics_stop()" onmouseover="graphics_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='graphics_image'>
-                      <img alt="WebGL terrain model" loading="lazy" src='images/webgl-3-1.png' width="160" height="114">
-                    </div>
-                    <img alt="WebGL flight simulation over generated terrain" loading="lazy" src='images/webgl-6.png' width="160" height="109">
-                  </div>
-                  <script type="text/javascript">
-                    function graphics_start() {
-                      document.getElementById('graphics_image').style.opacity = "1";
-                    }
-
-                    function graphics_stop() {
-                      document.getElementById('graphics_image').style.opacity = "0";
-                    }
-                    graphics_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://graphics-projects.sanjitkumar.me/">
-                    <papertitle>Interactive Computer Graphics: </papertitle>
-                  </a>
-                  <b>Rasterizer, Ray Tracer, WebGL Terrain Modeling, Flight Simulation and Particle Effects</b>
-                  <br>
-                  <br>
-                  A collection of projects around interactive computer graphics - Implementations of a <em> Rasterizer
-                    and Ray Tracer</em> from scratch that take descriptions of a scene and output graphic images. Also
-                  includes a collection of work with WebGL: creating a 3D Model of an arbitrary landscape terrain using
-                  random fault generation, illumination via diffuse/specular lighting models and erosion simulation. A
-                  flight simulation of said generated terrain. Finally a simulation of particles with physical forces
-                  like momentum, gravity and drag. For <a
-                    href="https://graphics-projects.sanjitkumar.me">more details and demonstrations</a>
-                  of this work.
-                  <br><br>
-                </td>
-              </tr>
-
-
-
-
-              <tr onmouseout="realworldbugdiscovery_stop()" onmouseover="realworldbugdiscovery_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='realwordlbugdiscovery_image'>
-                      <img alt="Clover code coverage report" loading="lazy" src='images/clover-coverage-2.png' width="160" height="85">
-                    </div>
-                    <img alt="Mutation-based fault localization results" loading="lazy" src='images/fault-localization-mbfl.png' width="160" height="30">
-                  </div>
-                  <script type="text/javascript">
-                    function realworldbugdiscovery_start() {
-                      document.getElementById('realwordlbugdiscovery_image').style.opacity = "1";
-                    }
-
-                    function realworldbugdiscovery_stop() {
-                      document.getElementById('realwordlbugdiscovery_image').style.opacity = "0";
-                    }
-                    realworldbugdiscovery_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/ambur-biryani/wild-sprint-frontend">
-                    <papertitle>RealWorldBugDiscovery : </papertitle>
-                  </a>
-                  <b> An Evaluation of Open Source Real World Bugs via Popular Bug Datasets</b>
-                  <br>
-                  <br>
-                  In the this project, a comprehensive benchmarking study was conducted on the complexity of real-world
-                  bugs in open-source Maven and Gradle projects. Popular bug datasets such as Defects4J, BugSwarm,
-                  Bears, and QuixBugs were utilized to evaluate the quality of test suites generated by automated test
-                  generation tools, specifically Randoop and Evosuite. Code statement coverage for these bugs was
-                  analyzed using tools like Clover, IntelliJ IDEA, and JaCoCo. Suspiciousness scores for code statements
-                  were calculated from the coverage reports to identify lines of code with the highest likelihood of
-                  containing bugs. Results
-                  <a href="https://youtu.be/3ebt6BfSug0">youtube</a>.
-                  <br><br>
-                </td>
-              </tr>
-
-
-              <tr onmouseout="mld_stop()" onmouseover="mld_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='mld_image'>
-                      <img alt="Apache Arrow logo" loading="lazy" src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160">
-                      <!-- <img src='images/arrow.png' width="160"> -->
-                    </div>
-                    <!-- <img src='https://arrow.apache.org/img/arrow-logo_hex_white-txt_black-bg.png' width="160"> -->
-                      <!-- <img alt="Apache Arrow logo" loading="lazy" src='https://arrow.apache.org/img/arrow-logo_vertical_white-txt_black-bg.png' width="160"> -->
-                    <img alt="FlatBuffers logo" loading="lazy" src='images/flatbuffers.png' width="160" height="84">
-                  </div>
-                  <script type="text/javascript">
-                    function mld_start() {
-                      document.getElementById('mld_image').style.opacity = "1";
-                    }
-
-                    function mld_stop() {
-                      document.getElementById('mld_image').style.opacity = "0";
-                    }
-                    // mld_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://github.com/sanjitk7/data-systems-projects">
-                    <papertitle>Data Systems and Machine Learning: </papertitle>
-                  </a>
-                  <b>Online Aggregation, HyperLogLog, Apache Arrow-Parquet ASCII Encoder, Flatbuffers and Shared Memory</b>
-                  <br>
-                  <br>
-                  <u>OLA:</u> Implemented OLA to progressively obtain approximate query results for various Pandas DataFrame operations, such as filtered mean, grouped mean, and grouped sum. <br><br>
-                  <u>Apache Arrow-Parquet Encoder:</u> Implemented HyperLogLog to estimate the dataset cardinality. Modified the Apache Arrow source code to implement a new ASCII Encoder and Decoder for Parquet, supporting the Integer and Float data types. <br><br>
-                  <u>Flatbuffers & Shared Memory:</u> Worked with Google's Flatbuffers and Python's shared memory libraries to pass serialized DataFrames between notebook sessions, and performed various operations directly on the serialized DataFrames. 
-                  This improves data sharing and manipulation efficiency in Python since leveraging Flatbuffers provides faster serialization and shared memory for inter-process communication.
-
-                  <br><br>
-                </td>
-              </tr>
-              
-
-            </tbody>
-          </table>
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td>
-                  <h2 class="heading">Publications</h2>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table width="100%" align="center" border="0" cellpadding="20">
-            <tbody>
-
-              <tr onmouseout="iotpub_stop()" onmouseover="iotpub_start()">
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <div class="one">
-                    <div class="two" id='iotpub_image'>
-                      <img alt="IoT security survey" loading="lazy" src='images/iotpub-1.jpeg' width="160" height="100">
-                    </div>
-                    <img alt="IoT security framework comparison" loading="lazy" src='images/iotpub-2.png' width="160" height="100">
-                  </div>
-                  <script type="text/javascript">
-                    function iotpub_start() {
-                      document.getElementById('iotpub_image').style.opacity = "1";
-                    }
-
-                    function iotpub_stop() {
-                      document.getElementById('iotpub_image').style.opacity = "0";
-                    }
-                    iotpub_stop()
-                  </script>
-                </td>
-                <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://ieeexplore.ieee.org/document/9670971">
-                    <papertitle>A Survey on Internet of Things Security : </papertitle>
-                  </a>
-                  <b>Attacks, Solutions, Strengths and Limitations</b>
-                  <br>
-                  <em> International Conference on Artificial Intelligence and Machine Vision (AIMV), 2021 </em>
-                  <br>
-                  <br>
-                  Presented a comparative analysis of benchmarks for latest security frameworks from then recent IoT
-                  literature while advised by Dr. Anil Kumar Kakelli. Categorically classified and critiqued existing IoT security frameworks based on their approaches to address the threat of malignant
-                  nodes in heterogenous device networks and general strengths/limitations.
-                  <br><br>
-                </td>
-              </tr>
-
-
-            </tbody>
-          </table>
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:0px">
-                  <br>
-                  <p style="text-align:right;font-size:small;">
-                    design and source code from <a href="https://jonbarron.info">Jon Barron's website</a>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-  </table>
-
-
-
-
+<script>
+const t=document.querySelector('.track'),pv=document.querySelector('.arr.prev'),nx=document.querySelector('.arr.next'),ct=document.querySelector('.count');
+const step=()=>{const c=t.querySelector('.card');return c.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||20)};
+const per=()=>Math.max(1,Math.round(t.clientWidth/step()));
+function upd(){const n=t.children.length,first=Math.round(t.scrollLeft/step());pv.disabled=t.scrollLeft<4;nx.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4;
+ const last=Math.min(n,first+per());ct.textContent=(last>first+1?`${first+1}–${last}`:`${first+1}`)+` of ${n}`}
+pv.onclick=()=>t.scrollBy({left:-step()*per()});nx.onclick=()=>t.scrollBy({left:step()*per()});
+t.addEventListener('scroll',()=>requestAnimationFrame(upd));addEventListener('resize',upd);upd();
+</script>
 </body>
-
 </html>
