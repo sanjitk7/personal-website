@@ -135,8 +135,11 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{background:var(--surface);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease}
 .card:hover{transform:translateY(-4px)}
-.card .img{aspect-ratio:16/10;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--line)}
-.card .img{position:relative}.card .img img{width:100%;height:100%;object-fit:cover}.card .img .hov{position:absolute;inset:0;opacity:0;transition:opacity .35s ease}.card:hover .img .hov,.card:focus-visible .img .hov{opacity:1}
+.card .img{position:relative;aspect-ratio:16/10;background:#fff;border-bottom:1px solid var(--line)}
+.card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px;transition:opacity .3s}
+.card .img .hov{opacity:0}
+@media (hover:hover){.card:hover .img .base{opacity:0}.card:hover .img .hov{opacity:1}}
+.card:focus-visible .img .base{opacity:0}.card:focus-visible .img .hov{opacity:1}
 .card .c{padding:20px 22px 24px}.tag{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .card h3{font-size:19px;letter-spacing:-.01em;margin:6px 0 8px}.card p{margin:0;color:var(--muted);font-size:15px}
 .list{margin-top:28px;border-top:1px solid var(--line)}
@@ -147,31 +150,29 @@ h2{font-size:28px;letter-spacing:-.02em;font-weight:600;margin:0}.sh p{margin:0;
 .job{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px}
 .job img{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--line);flex:none}
 .job h3{font-size:17px;margin:0}.job .m{color:var(--muted);font-size:14px;margin:2px 0 10px}.job p{margin:0;font-size:15px;color:var(--muted)}
-.pill{display:inline-block;margin-top:12px;font-size:13px;font-weight:500;color:var(--accent);background:#ff5a1f14;border-radius:999px;padding:3px 10px}
-.photo{border-radius:28px;background:#111;color:#fff;padding:56px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;
-  background-image:radial-gradient(120% 140% at 100% 0%,#3a2a20 0%,#111 55%)}
-.photo h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em}.photo p{color:#bbb;margin:10px 0 0;max-width:460px}
-.photo .btn{border-color:#444;color:#fff}.photo .btn:hover{border-color:#fff}
 .strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .cell{aspect-ratio:4/5;border-radius:16px;overflow:hidden;display:block}.cell img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.strip:hover .cell img{transform:scale(1.03)}
 .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#8a8f94}
 .vsco{margin:16px 0 0;color:var(--muted);font-size:15px}
-.more{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.mcard{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;gap:16px;transition:border-color .2s}
-.mcard:hover{border-color:var(--ink)}.mcard:hover .ti{background:var(--ink);color:#fff}.mcard .ti{flex:none}
-.mcard h3{font-size:17px;line-height:1.4;margin:6px 0 10px;font-weight:600}.go{font-size:14px;font-weight:500}
 footer{padding:8px 0 40px;border-top:1px solid var(--line)}
 footer h2{font-size:clamp(28px,4.4vw,48px);letter-spacing:-.03em;line-height:1.1;margin-bottom:24px}
 .fine{color:var(--muted);font-size:13px;margin-top:48px}
 @media (max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:48px 0 64px}.portrait{max-width:112px;justify-self:start;order:-1}
- .grid,.exp,.more{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
-@media (max-width:520px){#work .sh p{display:none}.strip{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}section{padding:56px 0}.photo{padding:32px 24px;grid-template-columns:1fr}.job{flex-direction:column}}
+ .grid,.exp{grid-template-columns:1fr}.li{grid-template-columns:44px 1fr;gap:2px 14px}.li .ti{grid-row:span 2;align-self:start}.li em{display:none}nav ul{display:none}}
+@media (max-width:520px){#work .sh p{display:none}.strip{grid-template-columns:repeat(2,1fr)}.wrap{padding:0 16px}section{padding:56px 0}.job{flex-direction:column}}
 """
+
+def card(p):
+    """Project card. With img_hover, the second image cross-fades in on hover (base fades out, so transparent PNGs never overlay)."""
+    h = p.get('img_hover')
+    imgs = (f'<img class="base" src="../images/{p["img"]}" alt="{e(p["name"])}" loading="lazy">'
+            + (f'<img class="hov" src="../images/{h}" alt="" loading="lazy">' if h else ''))
+    return (f'<a class="card" href="{p["url"]}"{ext(p["url"])}><div class="img">{imgs}</div>'
+            f'<div class="c"><div class="tag">{e(p["tag"])}</div><h3>{e(p["name"])}</h3><p>{e(p["line"])}</p></div></a>')
 
 def build_b():
     feat = [p for p in PROJECTS if p['featured']]; rest = [p for p in PROJECTS if not p['featured']]
-    cards = "".join(f"""<a class="card" href="{p['url']}"{ext(p['url'])}><div class="img"><img src="../images/{p['img']}" alt="{e(p['name'])}" loading="lazy">{f'<img class="hov" src="../images/{p["img_hover"]}" alt="" loading="lazy">' if p.get('img_hover') else ''}</div>
-      <div class="c"><div class="tag">{e(p['tag'])}</div><h3>{e(p['name'])}</h3><p>{e(p['line'])}</p></div></a>""" for p in feat)
+    cards = "".join(card(p) for p in feat)
     lis = "".join(f"""<a class="li" href="{p['url']}"{ext(p['url'])}><span class="ti" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{ICONS.get(p['name'],'')}</svg></span><b>{e(p['name'])}</b><span>{e(p['line'])}</span><em>{' · '.join(p['stack'])} ↗</em></a>""" for p in rest)
     jobs = "".join(f"""<div class="job"><img src="../images/{x['logo']}" alt="{e(x['org'])} logo" loading="lazy">
       <div><h3>{e(x['role'])}</h3><div class="m"><a href="{x['url']}"{ext(x['url'])}>{e(x['org'])}</a> · {x['dates']}</div><p>{e(x['summary'])}{(' ' + e(x['metric_sentence'])) if x.get('metric_sentence') else ''}</p></div></div>""" for x in EXPERIENCE)
@@ -308,7 +309,7 @@ CSS_CAR = r"""
 .arrows{display:flex;gap:8px;align-items:center}.count{font-size:14px;color:var(--muted);margin-right:8px;font-variant-numeric:tabular-nums}
 .arr{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);transition:border-color .2s,opacity .2s}
 .arr:hover{border-color:var(--ink)}.arr:disabled{opacity:.35;cursor:default;border-color:var(--line)}
-.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+.track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:6px 0 4px}
 .track::-webkit-scrollbar{display:none}.track .card{scroll-snap-align:start}
 @media (max-width:860px){.track{grid-auto-columns:calc((100% - 20px)/2)}}
 @media (max-width:520px){.track{grid-auto-columns:86%;gap:14px}.count{display:none}}
@@ -324,8 +325,7 @@ t.addEventListener('scroll',()=>requestAnimationFrame(upd));addEventListener('re
 """
 def build_b_carousel():
     html = build_b()
-    cards = "".join(f"""<a class="card" href="{p['url']}"{ext(p['url'])}><div class="img"><img src="../images/{p['img']}" alt="{e(p['name'])}" loading="lazy">{f'<img class="hov" src="../images/{p["img_hover"]}" alt="" loading="lazy">' if p.get('img_hover') else ''}</div>
-      <div class="c"><div class="tag">{e(p['tag'])}</div><h3>{e(p['name'])}</h3><p>{e(p['line'])}</p></div></a>""" for p in PROJECTS)
+    cards = "".join(card(p) for p in PROJECTS)
     chev = lambda d: f'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{d}"/></svg>'
     i = html.index('<section id="work">'); j = html.index('</section>', i) + len('</section>')
     sec = f"""<section id="work"><div class="carhead"><h2>Selected work</h2><div class="arrows"><span class="count"></span>

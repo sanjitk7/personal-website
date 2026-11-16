@@ -60,7 +60,7 @@ PROJECTS = [
     dict(name="Data systems & ML", short="Data", tag="Data systems", url="https://github.com/sanjitk7/data-systems-projects",
          line="Online aggregation, HyperLogLog, a Parquet ASCII encoder in Apache Arrow, and Flatbuffers over shared memory.",
          more="Progressive approximate answers for Pandas queries; cardinality estimation; a new Arrow/Parquet encoder; zero-copy DataFrame sharing between sessions.",
-         img="flatbuffers.png", stack=["C++","Python"], featured=False),
+         img="flatbuffers.png", img_hover="arrow.png", stack=["C++","Python"], featured=False),
     dict(name="RealWorldBugDiscovery", short="Testing", tag="Software testing", url="https://youtu.be/3ebt6BfSug0",
          line="Benchmarking real-world bugs from Defects4J, BugSwarm, Bears and QuixBugs against Randoop and EvoSuite.",
          more="Coverage via Clover, IntelliJ and JaCoCo, then suspiciousness scores to localize likely faulty lines.",
